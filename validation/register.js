@@ -8,6 +8,8 @@ module.exports = function validateRegisterInput(data) {
   data.email = validText(data.email) ? data.email : '';
   data.password = validText(data.password) ? data.password : '';
   data.password2 = validText(data.password2) ? data.password2 : '';
+  data.age = validText(data.age) ? data.age  : '';
+
 
   if (!Validator.isLength(data.username, { min: 2, max: 30 })) {
     errors.username = 'Username must be between 2 and 30 characters';
@@ -40,6 +42,14 @@ module.exports = function validateRegisterInput(data) {
   if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = 'Passwords must match';
   }
+
+  if (Validator.isEmpty(data.age)) {
+    errors.age = "Age field is required";
+  }
+  if (Validator.isInt(data.age, { max: 20 })) {
+    errors.age = "Must be 21 or older";
+  }
+
 
   return {
     errors,

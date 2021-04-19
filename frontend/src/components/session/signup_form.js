@@ -71,6 +71,13 @@ class SignupForm extends React.Component {
                 onChange={this.update('username')}
                 placeholder="Username"
               />
+              <br/>
+              <input type="number"
+                value={this.state.age}
+                onChange={this.update('age')}
+                placeholder="Age"
+                min = '21'
+              />
             <br/>
               <input type="password"
                 value={this.state.password}
