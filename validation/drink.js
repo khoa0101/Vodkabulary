@@ -15,6 +15,9 @@ module.exports = function validateDrinkInput(data) {
   if (Validator.isEmpty(data.category)) {
     errors.category = "category field is required";
   }
+  if (!Validator.isIn(data.category, ['vodka', 'rum'])) {
+    errors.category = "category must contain vodka, rum";
+  }
   if (Validator.isEmpty(data.directions)) {
     errors.directions = "directions field is required";
   }

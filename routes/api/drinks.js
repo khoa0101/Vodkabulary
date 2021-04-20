@@ -52,7 +52,8 @@ router.patch(
       return res.status(400).json(errors);
     }
 
-    const {title, category, directions} = req.body;
+    const {title, category, directions, ingredients} = req.body;
+
     Drink.findOneAndUpdate(
       { _id: req.params.id },
          {
@@ -60,7 +61,9 @@ router.patch(
           title,
           directions,
           category,
-        }},
+          ingredients: ingredients.split(',').map(el => el.trim())
+        }
+      },
       { returnOriginal: false, useFindAndModify: false })
       .then(drink =>res.status(200).send(drink))
       .catch(err => status(404).json({ error: err }))
@@ -82,7 +85,7 @@ router.post(
       user: req.user.id,
       title: req.body.title,
       category: req.body.category,
-      ingredients: req.body.ingredients,
+      ingredients: req.body.ingredients.split(",").map((el) => el.trim()),
       directions: req.body.directions,
     });
 
