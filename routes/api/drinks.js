@@ -46,6 +46,12 @@ router.patch(
   "/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    const { isValid, errors } = validateDrinkInput(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
     const {title, category, directions} = req.body;
     Drink.findOneAndUpdate(
       { _id: req.params.id },
