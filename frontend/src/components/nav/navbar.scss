@@ -5,15 +5,17 @@
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #639fab;
+  background-color: #1C5D99;
   a{
     .logo{
       display: flex;
       margin-right: 10px; 
       flex-direction: row;
       font-family: 'Monoton', cursive;
-      font-weight: 700;
       font-size: 24px;
+      &:hover{
+        color: white;
+      }
     }
   }
 
@@ -22,6 +24,9 @@
     align-items: center;
     a{
       margin: 0 10px;
+      &:hover{
+        color: white;
+      }
     }
   }
 };
