@@ -1,0 +1,40 @@
+.welcome{
+  background-image: linear-gradient(to bottom,#1C5D99, rgb(0, 39, 65));
+  padding: 30px 10%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1{
+    font-family: 'Monoton', cursive;
+    font-size: 46px;
+  }
+}
+
+footer{
+  .custom-shape-divider-top-1618939840 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1618939840 svg {
+    position: relative;
+    display: block;
+    width: calc(127% + 1.3px);
+    height: 80px;
+}
+
+.custom-shape-divider-top-1618939840 .shape-fill {
+    fill: rgb(0, 39, 65);
+}
+  .credits{
+    color: black;
+    padding: 20px 10%;
+    font-size: 12px;
+    background-color: #BBCDE5;
+  }
+}
