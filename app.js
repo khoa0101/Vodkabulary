@@ -14,9 +14,11 @@ mongoose
 
 // schema imports
 const User = require("./models/User");
+const Drink = require("./models/Drink");
 
 // route imports
 const users = require("./routes/api/users");
+const drinks = require("./routes/api/drinks");
 
 // express middleware
 app.use(express.json()); // replaces body parser
@@ -35,6 +37,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 app.use("/api/users", users);
+app.use("/api/drinks", drinks);
 
 // port setup
 const port = process.env.PORT || 5000;
