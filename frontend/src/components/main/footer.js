@@ -13,7 +13,10 @@ class Footer extends React.Component {
             </svg>
         </div>
         <div className="credits">
-          Built by Chris, Kevin, Cristiano, and Khoa
+          <ul>
+            <li>Built by Chris, Kevin, Cristiano, and Khoa</li>
+            <li>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a></li>
+          </ul>
         </div>
       </footer>
     );
