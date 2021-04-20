@@ -6,7 +6,8 @@ module.exports = function validateReviewInput(data) {
 
   data.body = validText(data.body) ? data.body : "";
   data.rating = validText(data.rating) ? data.rating : "";
-  data.date = validText(data.date) ? data.date : "";
+//   data.date = validText(data.date) ? data.date : "";
+    // data.author = validText(data.author) ? data.author : "";
 
   if (Validator.isEmpty(data.body)) {
     errors.body = "body field is required";
@@ -14,11 +15,11 @@ module.exports = function validateReviewInput(data) {
   if (Validator.isEmpty(data.rating)) {
     errors.rating = "rating field is required";
   }
-  if (Validator.isMongoId(data.author)) {
+  if (!Validator.isMongoId(data.author)) {
     errors.author = "author field is required";
   }
-   if (Validator.isInt(data.date, { max: 1, min: 5 })) {
-    errors.date = "Must be within 1 to 5";
+   if (!Validator.isInt(data.rating, { max: 5, min: 1 })) {
+    errors.rating = "Must be within 1 to 5";
   }
 
   return {
