@@ -17,8 +17,8 @@ export const deleteDrink = id => {
   return axios.delete(`/api/drinks/${id}`)
 };
 
-export const createDrink = (id, drink) => {
-  return axios.post(`/api/drinks/${id}`, drink)
+export const createDrink = (drink) => {
+  return axios.post(`/api/drinks/`, drink)
 };
 
 

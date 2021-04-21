@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
     action: drink => dispatch(createDrink(drink)),
-    createReview: drink => dispatch(createDrink(drink)),
+    createDrink: drink => dispatch(createDrink(drink)),
     fetchDrink: id => dispatch(fetchDrink(id)) 
 
 });

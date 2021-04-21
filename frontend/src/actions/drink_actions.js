@@ -26,7 +26,7 @@ export const fetchDrinks = () => dispatch => (
 );
 
 export const fetchDrink = id => dispatch => (
-    APIUtil.fetchDrink(id).then(
+  drinkAPIUtil.getDrink(id).then(
         drink => (
             dispatch(receiveDrink(drink))
     ))
@@ -40,6 +40,6 @@ export const fetchUserDrinks = id => dispatch => (
 
 export const createDrink = data => dispatch => (
   drinkAPIUtil.createDrink(data)
-    .then(drink => dispatch(receiveNewDrink(drink)))
+    .then(drink => dispatch(receiveDrink(drink)))
     .catch(err => console.log(err))
 );

@@ -17,9 +17,10 @@ class DrinkForm extends React.Component {
         this.submitR = this.submitR.bind(this);
     }
 
-     componentDidMount() {
-        this.props.fetchDrink(this.props.match.params.id)
-    };
+    // Comment back in when creating the edit form
+    // componentDidMount() {
+    //     this.props.fetchDrink(this.props.match.params.id)
+    // };
 
       loginMust() {
         alert('Log In User before submitting a Drink')
@@ -59,7 +60,7 @@ class DrinkForm extends React.Component {
 
     render() {
         if (this.props.drink === undefined) { return null 
-        }else{
+        } else {
         return (
              <div className='form-box'>
                     <div className='ftitle'>Create a Drink!</div>
@@ -94,7 +95,5 @@ class DrinkForm extends React.Component {
     }
 }
 
-
-}
 
 export default withRouter(DrinkForm)

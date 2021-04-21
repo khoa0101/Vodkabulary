@@ -11,7 +11,6 @@ class Drinks extends Component {
       };
   }
 
-  
 
   componentDidMount() {
       this.getSortedDrinkData(this);

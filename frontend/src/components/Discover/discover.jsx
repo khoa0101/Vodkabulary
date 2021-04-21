@@ -3,13 +3,10 @@ import React from "react";
 class Discover extends React.Component {
     constructor(props) {
         super(props)
-
     }
 
     componentDidMount() {
         const { fetchDrinks } = this.props;
-        
-
     }
 
     // setDefaultProfile() {
@@ -55,10 +52,6 @@ class Discover extends React.Component {
 
             drinkRows.unshift(listDrinkRow);
         }
-
-
-            
-
         
         return (
             <main className="browse-main">
