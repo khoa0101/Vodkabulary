@@ -1,6 +1,6 @@
 import React from "react";
 import DrinkShowContainer from "./drink_show_container";
-import drinks_container from "../Drinks/drinks_container";
+import DrinksContainer from "../Drinks/drinks_container";
 
 class DrinkRow extends React.Component {
 
