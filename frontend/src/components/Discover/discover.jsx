@@ -68,7 +68,7 @@ class Discover extends React.Component {
                 </section>
 
                 <section className="browse-rows-container">
-                    {movieRows}
+                    {drinkRows}
                 </section>
             </main>
         )
@@ -76,4 +76,4 @@ class Discover extends React.Component {
 
 }
 
-export default Browse;
+export default Discover;

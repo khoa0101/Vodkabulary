@@ -1,14 +1,14 @@
 import React from "react";
-import MovieShowContainer from "./movie_show_container";
+import DrinkShowContainer from "./drink_show_container";
 import drinks_container from "../Drinks/drinks_container";
 
-class MovieRow extends React.Component {
+class DrinkRow extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            activeMovie: null,
+            activeDrink: null,
             activeRow: false,
             toggle: false
         }
@@ -17,7 +17,7 @@ class MovieRow extends React.Component {
         this.transitioning = false;
         this.showRightArrow = false;
 
-        this.setActiveMovie = this.setActiveMovie.bind(this);
+        this.setActiveDrink = this.setActiveDrink.bind(this);
                 this.closeShow = this.closeShow.bind(this);
         this.shiftForward = this.shiftForward.bind(this);
         this.updateToggle = this.updateToggle.bind(this);
@@ -34,36 +34,36 @@ class MovieRow extends React.Component {
         this.mounted = true;
         this.updateRightArrow();
 
-        const moviescrolling = document.getElementById(`${this.props.name}-moviescrolling`);
-        moviescrolling.addEventListener("transitionstart", this.switchOnTransition);
+        const drinkscrolling = document.getElementById(`${this.props.name}-drinkscrolling`);
+        drinkscrolling.addEventListener("transitionstart", this.switchOnTransition);
     }
 
     componentWillUnmount() {
         this.mounted = false;
     }
 
-    setActiveMovie(movie) {
+    setActiveDrink(drink) {
         if (!this.props.hideTitle) {
-            this.props.history.push(`/browse/${movie.id}`)
+            this.props.history.push(`/browse/${drink.id}`)
         }
 
 
 
 
         this.setState({
-            activeMovie: movie,
+            activeDrink: drink,
             activeRow: true
         })
     }
 
     shiftForward() {
-        const moviescrolling = document.getElementById(`${this.props.name}-moviescrolling`);
+        const drinkscrolling = document.getElementById(`${this.props.name}-drinkscrolling`);
         const wrapper = document.getElementById(`${this.props.name}-wrapper`);
         
-        const shiftLength = (moviescrolling.offsetWidth - wrapper.offsetWidth) * -1;
+        const shiftLength = (drinkscrolling.offsetWidth - wrapper.offsetWidth) * -1;
 
         if (shiftLength < 0) {
-            moviescrolling.style.transform = `translateX(${shiftLength + "px"})`;
+            drinkscrolling.style.transform = `translateX(${shiftLength + "px"})`;
             this.showRightArrow = false;
             this.showLeftArrow = true;
             this.updateToggle();
@@ -73,8 +73,8 @@ class MovieRow extends React.Component {
 
 
     shiftBack() {
-        const moviescrolling = document.getElementById(`${this.props.name}-moviescrolling`);
-        moviescrolling.style.transform ="";
+        const drinkscrolling = document.getElementById(`${this.props.name}-drinkscrolling`);
+        drinkscrolling.style.transform ="";
 
         this.showRightArrow = true;
         this.showLeftArrow = false;
@@ -86,19 +86,19 @@ class MovieRow extends React.Component {
 
         if (this.mounted) {
             this.setState({
-                activeMovie: null,
+                activeDrink: null,
                 activeRow: false
             })
         }
     }
 
     updateRightArrow() {
-        const moviescrolling = document.getElementById(`${this.props.name}-moviescrolling`);
+        const drinkscrolling = document.getElementById(`${this.props.name}-drinkscrolling`);
 
 
         const wrapper = document.getElementById(`${this.props.name}-wrapper`);
 
-        const shiftLength = (moviescrolling.offsetWidth - wrapper.offsetWidth) * -1;
+        const shiftLength = (drinkscrolling.offsetWidth - wrapper.offsetWidth) * -1;
 
         this.showRightArrow = shiftLength < 0;
         this.setState({toggle: !this.state.toggle})
@@ -113,7 +113,7 @@ class MovieRow extends React.Component {
     }
 
     switchOnTransition(event) {
-        if (event.srcElement.id.includes("moviescrolling")) {
+        if (event.srcElement.id.includes("drinkscrolling")) {
             this.transitioning = true;
         } 
     }
@@ -125,36 +125,36 @@ class MovieRow extends React.Component {
 
 
     render() {
-        const { name, movies } = this.props;
-        const { activeRow, activeMovie } = this.state;
-        let movieItems = [];   
+        const { name, drinks } = this.props;
+        const { activeRow, activeDrink } = this.state;
+        let drinkItems = [];   
         
-        for (let [title, details] of movies) {
+        for (let [title, details] of drinks) {
             let activeStatus;
-            if (activeMovie) {
-                activeStatus = activeMovie.id === details.id;
+            if (activeDrink) {
+                activeStatus = activeDrink.id === details.id;
             }
 
             const inProfileListRow = this.props.hideGenre;
 
-            const movieItem = (
-                <MovieContainer key={details.id} 
+            const drinkItem = (
+                <DrinkContainer key={details.id} 
                     title={title} 
                    
                     activeRow={activeRow}
                      details={details} 
-                    activeMovie={activeStatus}
-                    setActiveMovie={this.setActiveMovie}
+                    activeDrink={activeStatus}
+                    setActiveDrink={this.setActiveDrink}
                     inProfileListRow={inProfileListRow}
                 />
             )
-            movieItems.push(movieItem)
+            drinkItems.push(drinkItem)
         }
 
-        let movieShow;
+        let drinkShow;
         if (activeRow) {
-            movieShow = (
-                <MovieShowContainer genre={name} details={activeMovie} close={this.closeShow} hideGenre={this.props.hideGenre} />
+            drinkShow = (
+                <DrinkShowContainer genre={name} details={activeDrink} close={this.closeShow} hideGenre={this.props.hideGenre} />
             )
         }
 
@@ -167,31 +167,31 @@ class MovieRow extends React.Component {
 
         if (!this.props.hideTitle) titleDiv=(<h2 className="genre-title" >{name}</h2>)
         if (!this.props.hideTitle && this.showRightArrow) {
-            rightArrow=(<div className="moviescrolling-right" onClick={this.shiftForward}></div>)
+            rightArrow=(<div className="drinkscrolling-right" onClick={this.shiftForward}></div>)
         } else {
-            rightArrow=(<div className="moviescrolling-right invisible" onClick={this.shiftForward}></div>)
+            rightArrow=(<div className="drinkscrolling-right invisible" onClick={this.shiftForward}></div>)
         }
 
         if (this.showLeftArrow) {
-            leftArrow = (<div id={`${name}-moviescrolling-btn`} className="moviescrolling-left" onClick={this.shiftBack}></div>);
+            leftArrow = (<div id={`${name}-drinkscrolling-btn`} className="drinkscrolling-left" onClick={this.shiftBack}></div>);
         } else {
-            leftArrow = (<div id={`${name}-moviescrolling-btn`} className="moviescrolling-left invisible" onClick={this.shiftBack}></div>);
+            leftArrow = (<div id={`${name}-drinkscrolling-btn`} className="drinkscrolling-left invisible" onClick={this.shiftBack}></div>);
         }
 
         return (
-            <div className="movie-row-main">
+            <div className="drink-row-main">
                 {titleDiv}
-                <div className="movies-container" onMouseEnter={this.stopHoverPropagation}>
+                <div className="drinks-container" onMouseEnter={this.stopHoverPropagation}>
                     {leftArrow}                    
-                    <div id={`${name}-wrapper`} className="moviescrolling-wrapper">
-                        <div id={`${name}-moviescrolling`} onTransitionEnd={this.switchOffTransition}  className="moviescrolling">
-                            {movieItems}
+                    <div id={`${name}-wrapper`} className="drinkscrolling-wrapper">
+                        <div id={`${name}-drinkscrolling`} onTransitionEnd={this.switchOffTransition}  className="drinkscrolling">
+                            {drinkItems}
                         </div>
                     </div>
                     {rightArrow}
                 </div>
 
-                {movieShow}
+                {drinkShow}
             </div>
         )
     }
