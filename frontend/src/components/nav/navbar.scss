@@ -1,0 +1,27 @@
+.nav_bar{
+  color: black;
+  padding: 20px 10%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #639fab;
+  a{
+    .logo{
+      display: flex;
+      margin-right: 10px; 
+      flex-direction: row;
+      font-family: 'Monoton', cursive;
+      font-weight: 700;
+      font-size: 24px;
+    }
+  }
+
+  .nav_buttons{
+    display: flex;
+    align-items: center;
+    a{
+      margin: 0 10px;
+    }
+  }
+};
