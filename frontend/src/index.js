@@ -5,6 +5,9 @@ import Root from './components/root';
 
 import configureStore from './store/store';
 
+import * as drinkAPIUtil from './util/drink_api_util';
+
+// We will use this to parse the user's session token
 import jwt_decode from 'jwt-decode';
 
 import { setAuthToken } from './util/session_api_util';
@@ -46,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   // Render our root component and pass in the store as a prop
   const root = document.getElementById('root');
+ 
+  window.drinkAPIUtil = drinkAPIUtil;
 
   ReactDOM.render(<Root store={store} />, root);
 });
