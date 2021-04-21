@@ -11,7 +11,6 @@ class DrinkShow extends React.Component {
             // muted: true
         }
 
-        this.toggleMute = this.toggleMute.bind(this);
         this.addDrinkToList = this.addDrinkToList.bind(this);
         this.removeDrinkFromList = this.removeDrinkFromList.bind(this);
     }
