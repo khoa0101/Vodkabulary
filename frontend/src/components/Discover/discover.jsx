@@ -64,7 +64,7 @@ class Discover extends React.Component {
             <main className="browse-main">
                 <NavContainer page="browse" />
                 <section className="browse-hero-container">
-                    <FeatureContainer />
+                   
                 </section>
 
                 <section className="browse-rows-container">
