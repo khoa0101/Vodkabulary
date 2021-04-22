@@ -49,7 +49,12 @@ router.post("/register", (req, res) => {
           newUser
             .save()
             .then((user) => {
-              const payload = { id: user.id, username: user.username, age: user.age, email: user.email };
+              const payload = {
+                id: user.id,
+                username: user.username,
+                age: user.age,
+                email: user.email,
+              };
 
               jwt.sign(
                 payload,
@@ -62,8 +67,7 @@ router.post("/register", (req, res) => {
                   });
                 }
               );
-            })
-            .catch((err) => console.log(err));
+            }).catch(errors => res.status(400).json(errors));
         });
       });
     }

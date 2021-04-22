@@ -16,7 +16,7 @@ class DrinkForm extends React.Component {
             photoFile: null,
             photoUrl: null
         }
-        this.cat_array = ["Vodka", "Rum", "Whiskey", "Gin", "Tequila"];
+        this.cat_array = ["Vodka", "Rum", "Whiskey", "Gin", "Tequila", "Beer", "Brandy"];
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.submitR = this.submitR.bind(this);
