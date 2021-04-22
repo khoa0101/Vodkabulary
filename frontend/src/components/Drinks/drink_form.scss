@@ -29,13 +29,29 @@
         background-image: linear-gradient(to left,rgb(121, 228, 255), rgb(255, 255, 255))
       }
     }
-    textarea{
+    select{
       background-image: linear-gradient(to right,rgb(121, 228, 255), rgb(255, 255, 255));
       color: black;
       border: solid white;
       border-radius: 5px;
       font-family: 'Roboto Slab', serif;
       padding: 10px;
+      transition: ease 1s;
+      &:focus{
+        border-color: gold;
+        color: black;
+        background-image: linear-gradient(to left,rgb(121, 228, 255), rgb(255, 255, 255))
+      }
+    }
+    textarea{
+      background-image: linear-gradient(to right,rgb(121, 228, 255), rgb(255, 255, 255));
+      color: black;
+      height: 50px;
+      border: solid white;
+      border-radius: 5px;
+      font-family: 'Roboto Slab', serif;
+      padding: 10px;
+      resize: none;
       transition: ease 1s;
       &:focus{
         border-color: gold;

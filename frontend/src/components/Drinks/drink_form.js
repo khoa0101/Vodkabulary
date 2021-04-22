@@ -16,6 +16,7 @@ class DrinkForm extends React.Component {
             photoFile: null,
             photoUrl: null
         }
+        this.cat_array = ["Vodka", "Rum", "Whiskey", "Gin", "Tequila"];
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.submitR = this.submitR.bind(this);
@@ -26,7 +27,7 @@ class DrinkForm extends React.Component {
     //     this.props.fetchDrink(this.props.match.params.id)
     // };
 
-      loginMust() {
+    loginMust() {
         alert('Log In User before submitting a Drink')
     }
 
@@ -106,13 +107,17 @@ class DrinkForm extends React.Component {
                         <input type="string" value={this.state.title} className="drink-title" onChange={this.update("title")} placeholder="Title"/> 
                     </label>
                     <label>Category
-                        <input type="string" value={this.state.category} className="drink-category" onChange={this.update("category")} placeholder="Category"/>                                                        
+                        <select value={this.state.category} className="drink-category" onChange={this.update("category")} placeholder="Category">
+                            {this.cat_array.map((category, i) =>
+                                <option  key={`${category}-${i}`} value={category}>{category}</option>
+                            )}
+                        </select>                                                        
                     </label>
                     <label>Ingredients
                         <textarea className='rtext' rows='15' cols='40'
                             value={this.state.ingredients}
                             onChange={this.update('ingredients')}
-                            placeholder='Please leave the ingredients of your drink!'
+                            placeholder='Please leave the ingredients of your drink, seperated by comma!'
                         />
                     </label>
                     <label>Directions
