@@ -34,14 +34,14 @@
       }
     }
   }
-  .submit-button{
-    margin: 0 auto;
+  .submit-button, .demo-login{
+    margin: 10px auto;
     display: block;
     font-family: 'Monoton', cursive;
     font-size: 16px;
     border: solid white;
     border-radius: 100px;
-    padding: 5px 15px;
+    padding: 5px 30px;
     transition: ease 0.9s;
     &:hover, &:active{
       background-color: white;

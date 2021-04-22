@@ -39,16 +39,10 @@ class DrinkForm extends React.Component {
         return e => this.setState({
             [f]: e.target.value
         });
+        console.log(this.state);
     }
 
     handleSubmit(e) {
-    //     e.preventDefault();
-    //    if(this.props.currentUser){
-    //     this.props.createDrink(this.state)
-    //     this.submitR()
-    //    }else{
-    //        this.loginMust()
-    //    }
 
     const formData = new FormData();
     formData.append('title', this.state.title);
@@ -100,6 +94,8 @@ class DrinkForm extends React.Component {
     render() {
         return (
              <div className='form-box'>
+                {/* {this.renderErrors()} */}
+                {console.log(this.props)}
                 <h1 className='ftitle'>Create a Drink!</h1>
                 <br/>
                 <form className='drink-form' onSubmit={this.handleSubmit}>  
@@ -107,7 +103,8 @@ class DrinkForm extends React.Component {
                         <input type="string" value={this.state.title} className="drink-title" onChange={this.update("title")} placeholder="Title"/> 
                     </label>
                     <label>Category
-                        <select value={this.state.category} className="drink-category" onChange={this.update("category")} placeholder="Category">
+                        <select value={this.state.category} className="drink-category" onChange={this.update("category")}>
+                            <option id="default" value="">Category</option>
                             {this.cat_array.map((category, i) =>
                                 <option  key={`${category}-${i}`} value={category}>{category}</option>
                             )}

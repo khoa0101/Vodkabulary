@@ -37,6 +37,10 @@
       font-family: 'Roboto Slab', serif;
       padding: 10px;
       transition: ease 1s;
+      #default{
+        font-size: 16px;
+        color: grey;
+      }
       &:focus{
         border-color: gold;
         color: black;
