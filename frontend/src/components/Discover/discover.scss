@@ -1,0 +1,19 @@
+.discover-main {
+    width: 100%;
+    background-color: #c7a2a2;
+}
+
+.discover-hero-container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.discover-rows-container {
+    width: 100%;
+    margin-top: -90px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}

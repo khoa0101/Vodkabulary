@@ -1,5 +1,5 @@
 import React from "react";
-import DrinkShowContainer from "./drink_show_container";
+import DrinkShowContainer from "../Drinks/drink_show_container";
 import DrinksContainer from "../Drinks/drinks_container";
 
 class DrinkRow extends React.Component {
@@ -44,7 +44,7 @@ class DrinkRow extends React.Component {
 
     setActiveDrink(drink) {
         if (!this.props.hideTitle) {
-            this.props.history.push(`/browse/${drink.id}`)
+            this.props.history.push(`/discover/${drink.id}`)
         }
 
 
@@ -138,7 +138,7 @@ class DrinkRow extends React.Component {
             const inProfileListRow = this.props.hideGenre;
 
             const drinkItem = (
-                <DrinkContainer key={details.id} 
+                <DrinksContainer key={details.id} 
                     title={title} 
                    
                     activeRow={activeRow}

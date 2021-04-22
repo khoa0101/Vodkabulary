@@ -1,66 +1,58 @@
 import React from "react";
+import DrinkRow from "../DrinkRow/drink_row";
+import "./discover.scss";
 
 class Discover extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
 
     componentDidMount() {
         const { fetchDrinks } = this.props;
     }
-
-    // setDefaultProfile() {
-    //     const { activeProfile, userProfiles, setActiveProfile, getProfileList } = this.props;
-    //     const firstProfile = Object.values(userProfiles)[0];
-        
-    //     if (!activeProfile) {
-    //         setActiveProfile(firstProfile)
-    //         getProfileList(firstProfile.listId)
-    //     } 
-    // }
-
+    
     render() {
+        console.log("this",this.props)
         const { drinks } = this.props;
        
-
-        // movies == drinks
         let drinkRows = [];
 
-        for (let [name, drinks] of genres) {
-            drinks = Object.entries(drinks)
-            let drinkRow = (
-                <DrinkRow key={name} name={name} drinks={drinks} history={this.props.history} />
-            )
-            drinkRows.push(drinkRow);
-        }
 
-        if (profileList.drinks && profileList.drinks.length > 0) {
 
-            let formattedDrinks = {};
-            let listDrinks = profileList.drinks;
+
+        //     () {
+        //     drinks = Object.entries(drinks)
+        //     let drinkRow = (
+        //         <movie key={title} title={title} drinks={drinks} history={this.props.history} />
+        //     )
+        //     drinkRows.push(drinkRow);
+        // }
+
+        // if (profileList.drinks && profileList.drinks.length > 0) {
+
+        //     let formattedDrinks = {};
+        //     let listDrinks = profileList.drinks;
         
 
-            listDrinks.forEach(drink => {
-                formattedDrinks[drink.title] = drink
-            })
+        //     listDrinks.forEach(drink => {
+        //         formattedDrinks[drink.title] = drink
+        //     })
 
-            formattedDrinks = Object.entries(formattedDrinks);
+        //     formattedDrinks = Object.entries(formattedDrinks);
 
-            let listDrinkRow = (
-                <DrinkRow key={"myList"} name={"My List"} drinks={formattedDrinks} history={this.props.history} hideTitle={false} hideGenre={true} />
-            )
+        //     let listDrinkRow = (
+        //         <DrinkRow key={"myList"} title={"My List"} drinks={formattedDrinks} history={this.props.history} hideTitle={false} hideGenre={true} />
+        //     )
 
-            drinkRows.unshift(listDrinkRow);
-        }
+        //     drinkRows.unshift(listDrinkRow);
+        // }
         
         return (
-            <main className="browse-main">
-                <NavContainer page="browse" />
-                <section className="browse-hero-container">
-                    <FeatureContainer />
+            <main className="discover-main">
+                <section className="discover-hero-container">             
                 </section>
 
-                <section className="browse-rows-container">
+                <section className="discover-rows-container">
                     {drinkRows}
                 </section>
             </main>
