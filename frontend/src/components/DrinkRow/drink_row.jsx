@@ -33,7 +33,7 @@ class DrinkRow extends React.Component {
     componentDidMount() {
         this.mounted = true;
         this.updateRightArrow();
-
+        
         const drinkscrolling = document.getElementById(`${this.props.name}-drinkscrolling`);
         drinkscrolling.addEventListener("transitionstart", this.switchOnTransition);
     }
@@ -46,9 +46,6 @@ class DrinkRow extends React.Component {
         if (!this.props.hideTitle) {
             this.props.history.push(`/discover/${drink.id}`)
         }
-
-
-
 
         this.setState({
             activeDrink: drink,

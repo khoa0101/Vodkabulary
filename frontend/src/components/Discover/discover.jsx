@@ -12,13 +12,9 @@ class Discover extends React.Component {
     }
     
     render() {
-        console.log("this",this.props)
         const { drinks } = this.props;
        
         let drinkRows = [];
-
-
-
 
         //     () {
         //     drinks = Object.entries(drinks)

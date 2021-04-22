@@ -4,7 +4,24 @@
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 90%, rgba(221,221,221,1) 100%);
     border: 0.04rem solid #aaaaaa;
-    border-radius: 0px;
+    border-radius: 0px;}
+
+    
+.drink-show-main { 
+    width: 100vw;
+    height: 550px;
+    display: flex;
+}
+
+.show-buttons-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.show-info-container {
+    background: linear-gradient(90deg, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 95%);
+    height: inherit;
+    width: 40%;
     display: flex;
     flex-direction: column;
     margin: 15px;

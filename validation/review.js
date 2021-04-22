@@ -10,13 +10,13 @@ module.exports = function validateReviewInput(data) {
     // data.author = validText(data.author) ? data.author : "";
 
   if (Validator.isEmpty(data.body)) {
-    errors.body = "body field is required";
+    errors.body = "Body field is required";
   }
   if (Validator.isEmpty(data.rating)) {
-    errors.rating = "rating field is required";
+    errors.rating = "Rating field is required";
   }
   if (!Validator.isMongoId(data.author)) {
-    errors.author = "author field is required";
+    errors.author = "Author field is required";
   }
    if (!Validator.isInt(data.rating, { max: 5, min: 1 })) {
     errors.rating = "Must be within 1 to 5";
