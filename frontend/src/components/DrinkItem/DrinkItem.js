@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import drink from '../../../../validation/drink';
+// import drink from '../';
 
 const drinkItem = (props) => (
     <div className='DrinkItem'>
