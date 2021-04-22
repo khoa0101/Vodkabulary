@@ -22,12 +22,12 @@ class Drinks extends Component {
 
     if (!loading) {
       drinks = <div className="drinks-grid">
-                  {this.state.drink_data.map(function(drink) {
-                    return (
-                      <DrinkItem key={drink._id} drink={drink} /> 
-                    )
-                  })}
-              </div>
+        {this.state.drink_data.map(function(drink) {
+            return (
+            <DrinkItem key={drink._id} drink={drink} /> 
+          )
+        })}
+      </div>
     }
     // else {
     //   drinks = <Spinner />;

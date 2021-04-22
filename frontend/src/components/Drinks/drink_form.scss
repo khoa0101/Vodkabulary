@@ -9,6 +9,11 @@
     font-family: 'Monoton', cursive;
     font-size: 24px;
   }
+  ul{
+    list-style: circle;
+    font-size: 12px;
+    color: red;
+  }
   label{
     display: flex;
     flex-direction: column;

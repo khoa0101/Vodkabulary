@@ -10,16 +10,16 @@ module.exports = function validateDrinkInput(data) {
   // validate ingredients later
 
   if (Validator.isEmpty(data.title)) {
-    errors.title = "title field is required";
+    errors.title = "Title field is required";
   }
   if (Validator.isEmpty(data.category)) {
-    errors.category = "category field is required";
+    errors.category = "Category field is required";
   }
   if (!Validator.isIn(data.category, ["Vodka", "Rum", "Whiskey", "Gin", "Tequila"])) {
-    errors.category = "category must contain Vodka, Rum, Whiskey, Gin, Tequila ";
+    errors.category = "Category must contain Vodka, Rum, Whiskey, Gin, Tequila ";
   }
   if (Validator.isEmpty(data.directions)) {
-    errors.directions = "directions field is required";
+    errors.directions = "Directions field is required";
   }
 
   return {

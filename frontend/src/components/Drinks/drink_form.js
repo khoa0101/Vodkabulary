@@ -82,7 +82,7 @@ class DrinkForm extends React.Component {
     renderErrors() {
         return (
             <ul>
-                {this.props.errors.map((error, i) => (
+                {Object.values(this.props.errors).map((error, i) => (
                     <li className="drink-errors" key={`error-${i}`}>
                         {error}
                     </li>
@@ -94,10 +94,11 @@ class DrinkForm extends React.Component {
     render() {
         return (
              <div className='form-box'>
-                {/* {this.renderErrors()} */}
+
                 {console.log(this.props)}
                 <h1 className='ftitle'>Create a Drink!</h1>
                 <br/>
+                {this.renderErrors()}
                 <form className='drink-form' onSubmit={this.handleSubmit}>  
                     <label>Title
                         <input type="string" value={this.state.title} className="drink-title" onChange={this.update("title")} placeholder="Title"/> 
