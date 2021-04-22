@@ -126,7 +126,7 @@ class DrinkForm extends React.Component {
                                     accept="image/jpeg"
                                     className="file-input"
                                     required
-                                    onChange={props.handleFile}
+                                    // onChange={props.handleFile}
                                     />
                                 <div className='rform-button'>
                                     <button className = 'submit-review'>Submit Drink</button>
