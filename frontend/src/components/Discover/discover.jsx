@@ -3,9 +3,9 @@ import DrinkRow from "../DrinkRow/drink_row";
 import "./discover.scss";
 
 class Discover extends React.Component {
-    // constructor(props) {
-    //     super(props)
-    // }
+    constructor(props) {
+        super(props)
+    }
 
     componentDidMount() {
         const { fetchDrinks } = this.props;

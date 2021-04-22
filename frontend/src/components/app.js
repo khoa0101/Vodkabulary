@@ -10,6 +10,7 @@ import SignupFormContainer from './session/signup_form_container';
 import DrinkCreateContainer from './Drinks/drink_form_container';
 import Footer from './main/footer';
 import DrinkShowContainer from './Drinks/drink_show_container'
+import ReviewFormContainer from './Review/review_form_container'
 const App = () => (
   <div>
     <NavBarContainer />
@@ -20,6 +21,8 @@ const App = () => (
       <ProtectedRoute exact path="/discover" component={DiscoverContainer} /> 
       <ProtectedRoute exact path="/createDrink" component={DrinkCreateContainer}/>
        <ProtectedRoute exact path="/drink/:id" component={DrinkShowContainer}/>
+       {/* test route */}
+       <ProtectedRoute exact path="/review/drink/:id" component={ReviewFormContainer}/>
     </Switch>
     <Footer />
   </div>

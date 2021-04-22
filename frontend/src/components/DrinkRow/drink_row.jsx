@@ -1,6 +1,6 @@
 import React from "react";
 import DrinkShowContainer from "../Drinks/drink_show_container";
-import DrinksContainer from "../Drinks/drinks_container";
+// import DrinksContainer from "../Drinks/drinks_container";
 
 class DrinkRow extends React.Component {
 
@@ -134,18 +134,18 @@ class DrinkRow extends React.Component {
 
             const inProfileListRow = this.props.hideGenre;
 
-            const drinkItem = (
-                <DrinksContainer key={details.id} 
-                    title={title} 
+            // const drinkItem = (
+                // <DrinksContainer key={details.id} 
+                //     title={title} 
                    
-                    activeRow={activeRow}
-                     details={details} 
-                    activeDrink={activeStatus}
-                    setActiveDrink={this.setActiveDrink}
-                    inProfileListRow={inProfileListRow}
-                />
-            )
-            drinkItems.push(drinkItem)
+                //     activeRow={activeRow}
+                //      details={details} 
+                //     activeDrink={activeStatus}
+                //     setActiveDrink={this.setActiveDrink}
+                //     inProfileListRow={inProfileListRow}
+                // />
+            // )
+            // drinkItems.push(drinkItem)
         }
 
         let drinkShow;

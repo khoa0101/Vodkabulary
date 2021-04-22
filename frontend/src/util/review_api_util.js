@@ -9,7 +9,7 @@ export const fetchDrinkReviews = (drinkId) => {
 }; 
 
 export const fetchUserReviews = (userId) => {
-    return axios.get(`/api/reviews/author/${userid}`)
+    return axios.get(`/api/reviews/author/${userId}`)
 }; 
 
 export const deleteReview = (id) => {

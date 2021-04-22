@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './drink_form.scss'
 
 class DrinkForm extends React.Component {
@@ -39,7 +39,7 @@ class DrinkForm extends React.Component {
         return e => this.setState({
             [f]: e.target.value
         });
-        console.log(this.state);
+    
     }
 
     handleSubmit(e) {

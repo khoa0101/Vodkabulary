@@ -32,7 +32,7 @@ export const fetchReview = id => dispatch => (
 );
 
 export const fetchDrinkReviews = () => dispatch => (
-    APIUtil.fetchDrinkqReviews().then(reviews => (
+    APIUtil.fetchDrinkReviews().then(reviews => (
         dispatch(receiveReviews(reviews))))
 );
 

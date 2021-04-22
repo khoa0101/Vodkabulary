@@ -1,5 +1,4 @@
 import React from 'react'
-import HeaderContainer from '../header/header_container'
 import { Link, Redirect, withRouter } from 'react-router-dom';
 
 class ReviewForm extends React.Component {
@@ -36,12 +35,12 @@ class ReviewForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-       if(this.props.currentUser){
+    //    if(this.props.currentUser){
         this.props.createReview(this.state)
         this.submitR()
-       }else{
-           this.loginMust()
-       }
+    //    }else{
+    //        this.loginMust()
+    //    }
     }
 
     renderErrors() {
@@ -57,10 +56,10 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-       
+       if (this.props.drink === undefined) return null
         return (
             <div>
-                <HeaderContainer />
+            
                 <div className='form-box'>
                     <div className='rtitle'>Write a Review for {this.props.drink.title}!</div>
                     <div className='rinfo-box'>
