@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import DrinkItem from '../../components/Drink/DrinkItem/DrinkItem';
+import DrinkItem from '../../components/DrinkItem/DrinkItem.js';
 
 
 class Drinks extends Component {
@@ -11,7 +11,6 @@ class Drinks extends Component {
       };
   }
 
-  
 
   componentDidMount() {
       this.getSortedDrinkData(this);
@@ -30,9 +29,9 @@ class Drinks extends Component {
                   })}
               </div>
     }
-    else {
-      drinks = <Spinner />;
-    }
+    // else {
+    //   drinks = <Spinner />;
+    // }
 
     return (
       <div className="Drinks">

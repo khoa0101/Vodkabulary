@@ -1,4 +1,4 @@
-import { RECEIVE_DRINKS, RECEIVE_USER_DRINKS, RECEIVE_NEW_DRINK } from '../actions/drink_actions';
+import { RECEIVE_DRINKS, RECEIVE_USER_DRINKS, RECEIVE_DRINK } from '../actions/drink_actions';
 
 
  const DrinksReducer = (state = {}, action) => {
@@ -11,7 +11,7 @@ import { RECEIVE_DRINKS, RECEIVE_USER_DRINKS, RECEIVE_NEW_DRINK } from '../actio
       case RECEIVE_USER_DRINKS:
         newState = action.drinks.data;
         return newState;
-      case RECEIVE_NEW_DRINK:
+      case RECEIVE_DRINK:
           newState[action.drink.data.id ] = action.drink.data;
           return newState;
       default:

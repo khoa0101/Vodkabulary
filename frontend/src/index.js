@@ -6,9 +6,7 @@ import Root from './components/root';
 import configureStore from './store/store';
 import * as drinkAPIUtil from './util/drink_api_util';
 
-
 // We will use this to parse the user's session token
-
 import jwt_decode from 'jwt-decode';
 
 import { setAuthToken } from './util/session_api_util';

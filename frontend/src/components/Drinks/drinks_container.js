@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchDrinks } from '../../actions/drink_actions';
-import Drinks from './drinks';
+import Drinks from './Drinks';
 
 const mapStateToProps = (state) => {
   return {

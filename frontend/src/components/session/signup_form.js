@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import './session_form.scss';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -44,6 +45,8 @@ class SignupForm extends React.Component {
     this.props.signup(user, this.props.history); 
   }
 
+  
+
   renderErrors() {
     return(
       <ul>
@@ -58,43 +61,54 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form-container">
+      <div className="session-form-container">
+        <h1>Signup</h1>
+        {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
-          <div className="signup-form">
+          <div className="session-form">
             <br/>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                placeholder="Email"
-              />
+              <label>Email
+                <input type="text"
+                  value={this.state.email}
+                  onChange={this.update('email')}
+                  placeholder="Email"
+                />
+              </label>
             <br/>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                placeholder="Username"
-              />
-              <br/>
-              <input type="number"
-                value={this.state.age}
-                onChange={this.update('age')}
-                placeholder="Age"
-                min = '21'
-              />
+              <label>Username
+                <input type="text"
+                  value={this.state.username}
+                  onChange={this.update('username')}
+                  placeholder="Username"
+                />
+              </label>  
             <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
+              <label>Age
+                <input type="number"
+                  value={this.state.age}
+                  onChange={this.update('age')}
+                  placeholder="Age"
+                  min = '21'
+                />
+              </label>
             <br/>
-              <input type="password"
-                value={this.state.password2}
-                onChange={this.update('password2')}
-                placeholder="Confirm Password"
-              />
+              <label>Password
+                <input type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
+                  placeholder="Password"
+                />
+              </label>
             <br/>
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+              <label>Confirm Password
+                <input type="password"
+                  value={this.state.password2}
+                  onChange={this.update('password2')}
+                  placeholder="Confirm Password"
+                />
+              </label>
+            <br/>
+            <input className="submit-button" type="submit" value="Submit" />
           </div>
         </form>
       </div>
