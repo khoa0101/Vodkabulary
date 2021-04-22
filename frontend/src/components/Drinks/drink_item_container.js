@@ -7,6 +7,8 @@ const mapStateToProps = (state, ownProps) => ({
         currentUser: state.session.id,
         drink: state.entities.drinks[ownProps.match.params.id]
         
+
+        
     })
 
 const mapDispatchToProps = dispatch => ({
