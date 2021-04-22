@@ -1,0 +1,68 @@
+
+
+
+
+.invisible {
+    visibility: hidden;
+}
+.drink-row-main {
+    color: white;
+    width: 100%;
+    margin-bottom: 55px;
+}
+
+
+
+.drinkscrolling-wrapper {
+
+    display: flex;
+    align-items: center;
+    width: 95%;
+    overflow-x: hidden;
+    margin: 0 10px 5px 10px;
+    position: relative;
+}
+
+.drinks-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 172px;
+}
+
+
+.drinkscrolling-left {
+    cursor: pointer;
+    background-image: image-url("scroll-left-white");
+    height: 55px;
+    width: 16px;
+}
+
+.unhidden {
+    visibility: visible;
+}
+
+
+.drinkscrolling {
+    display: flex;
+    transition: 1s ease all; 
+    align-items: center;
+}
+.drinkscrolling-left:hover {
+    background-image: image-url("scroll-left-red");
+}
+
+
+
+.drinkscrolling-right:hover {
+    background-image: image-url("scroll-right-red");
+    cursor: pointer;
+}
+
+
+
+.moviescrolling-right {
+    background-image: image-url("scroll-right-white");
+    height: 55px;
+    width: 16px;
+}
