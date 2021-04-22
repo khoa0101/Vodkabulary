@@ -7,7 +7,7 @@ class DrinkForm extends React.Component {
         super(props);
         this.state = {
             // busin_id: this.props.match.params.id,
-            author_id: this.props.currentUser,
+            author: this.props.currentUser,
             title: '',
             category: '',
             ingredients: '',
@@ -16,6 +16,7 @@ class DrinkForm extends React.Component {
             photoUrl: null
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleFile = this.handleFile.bind(this);
         this.submitR = this.submitR.bind(this);
     }
 
@@ -58,31 +59,30 @@ class DrinkForm extends React.Component {
       formData.append('photo', this.state.photoFile);
     }
 
-   
-    this.props.processForm(formData, (postId) =>
-      this.props.history.push(`/posts/${postId}`)
-    );
+    console.log(this.state)
+
+    this.props.processForm(formData);
     }
 
     handleFile(e){
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      let [name, extension] = file.name.split(".");
-      extension = extension.toLowerCase();
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+        let [name, extension] = file.name.split(".");
+        extension = extension.toLowerCase();
 
-      // If the extensions don't match the following, state will not be set.
-      if ( extension !== "jpg" &&  extension !== "jpeg" ) return;
+        // If the extensions don't match the following, state will not be set.
+        if ( extension !== "jpg" &&  extension !== "jpeg" ) return;
 
-      this.setState({
-        photoFile: file,
-        photoUrl: fileReader.result,
-        title: name,
-      });
-    }
-    if (file) {
-      fileReader.readAsDataURL(file);
-    }
+        this.setState({
+            photoFile: file,
+            photoUrl: fileReader.result,
+            title: name,
+        });
+        }
+        if (file) {
+        fileReader.readAsDataURL(file);
+        }
   }
     renderErrors() {
         return (
@@ -97,8 +97,9 @@ class DrinkForm extends React.Component {
     }
 
     render() {
-        if (this.props.drink === undefined) { return null 
-        } else {
+        // if (this.props.drink === undefined) { return null 
+        // } else {
+            console.log('prop', this.props)
         return (
              <div className='form-box'>
                     <div className='ftitle'>Create a Drink!</div>
@@ -126,7 +127,7 @@ class DrinkForm extends React.Component {
                                     accept="image/jpeg"
                                     className="file-input"
                                     required
-                                    // onChange={props.handleFile}
+                                    onChange={this.handleFile}
                                     />
                                 <div className='rform-button'>
                                     <button className = 'submit-review'>Submit Drink</button>
@@ -137,7 +138,7 @@ class DrinkForm extends React.Component {
           
         )}
         
-    }
+    // }
 }
 
 
