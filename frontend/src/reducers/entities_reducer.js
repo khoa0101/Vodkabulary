@@ -5,7 +5,6 @@ import reviewsReducer from './reviews_reducer';
 
 
 const entitiesReducer = combineReducers({
-
    drinks: drinksReducer,
    users: usersReducer,
    reviews: reviewsReducer,

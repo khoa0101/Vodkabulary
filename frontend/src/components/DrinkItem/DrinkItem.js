@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import drink from '../';
 
 const drinkItem = (props) => (
     <div className='DrinkItem'>
@@ -35,10 +34,6 @@ const drinkItem = (props) => (
 // };
 
 // export default withStyles(styles)(CardView);
-
-
-
-
 
 export default drinkItem;
 
