@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Redirect, withRouter } from 'react-router-dom';
+import './drink_form.scss'
 
 class DrinkForm extends React.Component {
 
@@ -59,8 +60,6 @@ class DrinkForm extends React.Component {
       formData.append('photo', this.state.photoFile);
     }
 
-    console.log(this.state)
-
     this.props.processForm(formData);
     }
 
@@ -83,7 +82,8 @@ class DrinkForm extends React.Component {
         if (file) {
         fileReader.readAsDataURL(file);
         }
-  }
+    }
+
     renderErrors() {
         return (
             <ul>
@@ -97,48 +97,43 @@ class DrinkForm extends React.Component {
     }
 
     render() {
-        // if (this.props.drink === undefined) { return null 
-        // } else {
-            console.log('prop', this.props)
         return (
              <div className='form-box'>
-                    <div className='ftitle'>Create a Drink!</div>
-                        <form className='drink-form' onSubmit={this.handleSubmit}>  
-                                <div className='title-text'>Please input below a title and category! </div>
-                                    <input type="string" value={this.state.title} className="drink-title" onChange={this.update("title")} /> 
-                                    <input type="string" value={this.state.category} className="drink-category" onChange={this.update("category")} />                                                        
-                                <div className='ingredients'>
-                                    <textarea className='rtext' rows='15' cols='40'
-                                        value={this.state.ingredients}
-                                        onChange={this.update('ingredients')}
-                                        placeholder='Please leave the ingredients of your drink!'
-                                    />
-                                </div>
-                                 <div className='directions'>
-                                    <textarea className='rtext' rows='15' cols='40'
-                                        value={this.state.directions}
-                                        onChange={this.update('directions')}
-                                        placeholder='Please leave the directions of making your drink!'
-                                    />
-                                </div>
-                            <div className='submit-button-box'>
-                                 <input
-                                    type="file"
-                                    accept="image/jpeg"
-                                    className="file-input"
-                                    required
-                                    onChange={this.handleFile}
-                                    />
-                                <div className='rform-button'>
-                                    <button className = 'submit-review'>Submit Drink</button>
-                                </div>
-                            </div>
-                        </form>
-                </div>
-          
-        )}
-        
-    // }
+                <h1 className='ftitle'>Create a Drink!</h1>
+                <br/>
+                <form className='drink-form' onSubmit={this.handleSubmit}>  
+                    <label>Title
+                        <input type="string" value={this.state.title} className="drink-title" onChange={this.update("title")} placeholder="Title"/> 
+                    </label>
+                    <label>Category
+                        <input type="string" value={this.state.category} className="drink-category" onChange={this.update("category")} placeholder="Category"/>                                                        
+                    </label>
+                    <label>Ingredients
+                        <textarea className='rtext' rows='15' cols='40'
+                            value={this.state.ingredients}
+                            onChange={this.update('ingredients')}
+                            placeholder='Please leave the ingredients of your drink!'
+                        />
+                    </label>
+                    <label>Directions
+                        <textarea className='rtext' rows='15' cols='40'
+                            value={this.state.directions}
+                            onChange={this.update('directions')}
+                            placeholder='Please leave the directions of making your drink!'
+                        />
+                    </label>
+                    <input
+                        type="file"
+                        accept="image/jpeg"
+                        className="file-input"
+                        required
+                        onChange={this.handleFile}
+                    />
+                    <button className = 'submit-button'>Submit Drink</button>
+                </form>
+            </div>
+        )
+    }
 }
 
 

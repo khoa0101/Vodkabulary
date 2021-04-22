@@ -35,10 +35,6 @@ const drinkItem = (props) => (
 
 // export default withStyles(styles)(CardView);
 
-
-
-
-
 export default drinkItem;
 
 

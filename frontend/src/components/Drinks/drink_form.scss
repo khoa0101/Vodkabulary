@@ -1,0 +1,67 @@
+.form-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom,#1C5D99, rgb(0, 39, 65));
+  padding-bottom: 20px;
+  .ftitle{
+    font-family: 'Monoton', cursive;
+    font-size: 24px;
+  }
+  label{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Monoton', cursive;
+    font-size: 16px;
+    margin: 10px 0;
+    input{
+      background-image: linear-gradient(to right,rgb(121, 228, 255), rgb(255, 255, 255));
+      color: black;
+      border: solid white;
+      border-radius: 5px;
+      font-family: 'Roboto Slab', serif;
+      padding: 10px;
+      transition: ease 1s;
+      &:focus{
+        border-color: gold;
+        color: black;
+        background-image: linear-gradient(to left,rgb(121, 228, 255), rgb(255, 255, 255))
+      }
+    }
+    textarea{
+      background-image: linear-gradient(to right,rgb(121, 228, 255), rgb(255, 255, 255));
+      color: black;
+      border: solid white;
+      border-radius: 5px;
+      font-family: 'Roboto Slab', serif;
+      padding: 10px;
+      transition: ease 1s;
+      &:focus{
+        border-color: gold;
+        color: black;
+        background-image: linear-gradient(to left,rgb(121, 228, 255), rgb(255, 255, 255))
+      }
+    }
+  }
+  .file-input{
+    display: block;
+    margin: 20px auto;
+    padding-left: 70px;
+  }
+  .submit-button{
+    margin: 10px auto 0;
+    display: block;
+    font-family: 'Monoton', cursive;
+    font-size: 16px;
+    border: solid white;
+    border-radius: 100px;
+    padding: 5px 15px;
+    transition: ease 0.9s;
+    &:hover, &:active{
+      background-color: white;
+      color: black;
+      transform: scale(1.2);
+    }
+  }
+}
