@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 
 import configureStore from './store/store';
-
 import * as drinkAPIUtil from './util/drink_api_util';
 
 // We will use this to parse the user's session token
