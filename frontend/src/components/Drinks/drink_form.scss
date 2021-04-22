@@ -24,7 +24,7 @@
       padding: 10px;
       transition: ease 1s;
       &:focus{
-        border-color: gold;
+        border-color: gray;
         color: black;
         background-image: linear-gradient(to left,rgb(121, 228, 255), rgb(255, 255, 255))
       }
@@ -42,7 +42,7 @@
         color: grey;
       }
       &:focus{
-        border-color: gold;
+        border-color: gray;
         color: black;
         background-image: linear-gradient(to left,rgb(121, 228, 255), rgb(255, 255, 255))
       }
@@ -58,7 +58,7 @@
       resize: none;
       transition: ease 1s;
       &:focus{
-        border-color: gold;
+        border-color: gray;
         color: black;
         background-image: linear-gradient(to left,rgb(121, 228, 255), rgb(255, 255, 255))
       }
