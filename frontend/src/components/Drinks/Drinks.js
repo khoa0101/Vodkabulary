@@ -1,45 +1,60 @@
-import React, { Component } from 'react';
-
-import DrinkItem from '../../components/DrinkItem/DrinkItem.js';
-
-
-class Drinks extends Component {
-  constructor() {
-      super()
-      this.state = {
-        drink_data: [],
-      };
-  }
+// import React, { Component } from 'react';
+// import { Link } from "react-router-dom";
+// import DrinkItem from '../../components/DrinkItem/DrinkItem.js';
 
 
-  componentDidMount() {
-      this.getSortedDrinkData(this);
-  }
+// class Drinks extends Component {
+//   constructor() {
+//       super()
+//       this.state = {
+//         drink_data: [],
+//       };
+//   }
 
-  render() {
-    const { loading } = this.state;
-    let drinks;
 
-    if (!loading) {
-      drinks = <div className="drinks-grid">
-                  {this.state.drink_data.map(function(drink) {
-                    return (
-                      <DrinkItem key={drink._id} drink={drink} /> 
-                    )
-                  })}
-              </div>
-    }
-    // else {
-    //   drinks = <Spinner />;
-    // }
+//   componentDidMount() {
+//       this.getSortedDrinkData(this);
+//   }
 
-    return (
-      <div className="Drinks">
-        <h1 className="drinks-header">Drinks</h1>
-        { drinks }
-      </div>
-    );
-  }
-}
+//     deleteDrink(id) {
+//         this.props.deleteDrink(id)
+  
+       
+//     }
 
-export default Drinks;
+//   render() {
+//     const { loading } = this.state;
+//     let drinks;
+
+//     if (!loading) {
+//       drinks = <div className="drinks-grid">
+//                   {this.state.drink_data.map(function(drink) {
+//                     return (
+//                       <DrinkItem key={drink.__id} drink={drink} /> 
+//                     )
+//                   })}
+//               </div>
+//     }
+ 
+
+//     return (
+//       <div className="Drinks">
+//        <div className='Drink'>
+//                 <Link to={`/users/${drink.user.id}`}>
+//                     {drink.user.id} 
+//                 </Link>
+//                      
+//                 </div>
+//     <div className='the picture of the Drink'>
+//     <img src='bloodymary.jpeg' alt="" />
+    
+//     </div>
+
+
+                
+//       </div>
+//     );
+//   }
+// }
+
+// export default Drinks;

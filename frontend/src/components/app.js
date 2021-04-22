@@ -7,9 +7,9 @@ import DiscoverContainer from './Discover/discover_container'
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-import DrinkItemContainer from './Drinks/drink_item_container';
+import DrinkCreateContainer from './Drinks/drink_form_container';
 import Footer from './main/footer';
-
+import DrinkShowContainer from './Drinks/drink_show_container'
 const App = () => (
   <div>
     <NavBarContainer />
@@ -18,7 +18,8 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/discover" component={DiscoverContainer} /> 
-      <ProtectedRoute exact path="/createDrink" component={DrinkItemContainer}/>
+      <ProtectedRoute exact path="/createDrink" component={DrinkCreateContainer}/>
+       <ProtectedRoute exact path="/drink/:id" component={DrinkShowContainer}/>
     </Switch>
     <Footer />
   </div>
