@@ -26,11 +26,53 @@ const users = [
     age: 1000
   }),
   new User({
-    email: "khoa@mail.com",
-    username: "khoa",
+    email: "ana@mail.com",
+    username: "ana",
     password: "password",
-    age: 1000
-  })
+    age: 23
+  }),
+  new User({
+    email: "justinb@mail.com",
+    username: "justb",
+    password: "password",
+    age: 26
+  }),
+  new User({
+    email: "miamimami@mail.com",
+    username: "miami100",
+    password: "password",
+    age: 24
+  }),
+  new User({
+    email: "jona@mail.com",
+    username: "jona2001",
+    password: "password",
+    age: 38
+  }),
+  new User({
+    email: "richard@mail.com",
+    username: "richard010",
+    password: "password",
+    age: 40
+  }),
+  new User({
+    email: "pac@mail.com",
+    username: "pacBro",
+    password: "password",
+    age: 31
+  }),
+  new User({
+    email: "emma@mail.com",
+    username: "emma10",
+    password: "password",
+    age: 57
+  }),
+  new User({
+    email: "jennij@mail.com",
+    username: "jennij10",
+    password: "password",
+    age: 21
+  }),
 ];
 
 module.exports = users;
