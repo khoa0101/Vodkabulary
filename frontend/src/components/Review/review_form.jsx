@@ -59,7 +59,7 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-  
+        console.log(this.props)
        if (this.props.drink === undefined) return null
         return ( 
             <div className='form-box'>

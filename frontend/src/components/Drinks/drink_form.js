@@ -27,12 +27,8 @@ class DrinkForm extends React.Component {
     //     this.props.fetchDrink(this.props.match.params.id)
     // };
 
-    loginMust() {
-        alert('Log In User before submitting a Drink')
-    }
-
     submitR() {
-        this.props.history.push(`/drinks/${this.props.match.params.id}`);
+        this.props.history.push(`/discover`);
     }
 
     update(f) {
@@ -43,39 +39,40 @@ class DrinkForm extends React.Component {
     }
 
     handleSubmit(e) {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('title', this.state.title);
+        formData.append('category', this.state.category);
+        formData.append('ingredients', this.state.ingredients);
+        formData.append('directions', this.state.directions);
+        formData.append('author', this.props.currentUser);
 
-    const formData = new FormData();
-    formData.append('title', this.state.title);
-    formData.append('category', this.state.category);
-    formData.append('ingredients', this.state.ingredients);
-    formData.append('directions', this.state.directions);
-    formData.append('author', this.props.currentUser);
+        if (this.state.photoFile) {
+            formData.append('photo', this.state.photoFile);
+        }
 
-    if (this.state.photoFile) {
-      formData.append('photo', this.state.photoFile);
-    }
-
-    this.props.processForm(formData);
+        this.props.processForm(formData).then(() => {
+            this.submitR();
+        })
     }
 
     handleFile(e){
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-        let [name, extension] = file.name.split(".");
-        extension = extension.toLowerCase();
+            let [name, extension] = file.name.split(".");
+            extension = extension.toLowerCase();
 
-        // If the extensions don't match the following, state will not be set.
-        if ( extension !== "jpg" &&  extension !== "jpeg" ) return;
+            // If the extensions don't match the following, state will not be set.
+            if ( extension !== "jpg" &&  extension !== "jpeg" ) return;
 
-        this.setState({
-            photoFile: file,
-            photoUrl: fileReader.result,
-            title: name,
-        });
+            this.setState({
+                photoFile: file,
+                photoUrl: fileReader.result,
+            });
         }
         if (file) {
-        fileReader.readAsDataURL(file);
+            fileReader.readAsDataURL(file);
         }
     }
 
@@ -132,7 +129,7 @@ class DrinkForm extends React.Component {
                         required
                         onChange={this.handleFile}
                     />
-                    <button className = 'submit-button'>Submit Drink</button>
+                    <button className ='submit-button'>Submit Drink</button>
                 </form>
             </div>
         )
