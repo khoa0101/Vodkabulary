@@ -1,6 +1,6 @@
 import React from "react";
 import DrinkShowContainer from "../Drinks/drink_show_container";
-import DrinksContainer from "../Drinks/drinks_container";
+// import DrinksContainer from "../Drinks/drinks_container";
 
 class DrinkRow extends React.Component {
 
@@ -33,7 +33,7 @@ class DrinkRow extends React.Component {
     componentDidMount() {
         this.mounted = true;
         this.updateRightArrow();
-
+        
         const drinkscrolling = document.getElementById(`${this.props.name}-drinkscrolling`);
         drinkscrolling.addEventListener("transitionstart", this.switchOnTransition);
     }
@@ -46,9 +46,6 @@ class DrinkRow extends React.Component {
         if (!this.props.hideTitle) {
             this.props.history.push(`/discover/${drink.id}`)
         }
-
-
-
 
         this.setState({
             activeDrink: drink,
@@ -137,18 +134,18 @@ class DrinkRow extends React.Component {
 
             const inProfileListRow = this.props.hideGenre;
 
-            const drinkItem = (
-                <DrinksContainer key={details.id} 
-                    title={title} 
+            // const drinkItem = (
+                // <DrinksContainer key={details.id} 
+                //     title={title} 
                    
-                    activeRow={activeRow}
-                     details={details} 
-                    activeDrink={activeStatus}
-                    setActiveDrink={this.setActiveDrink}
-                    inProfileListRow={inProfileListRow}
-                />
-            )
-            drinkItems.push(drinkItem)
+                //     activeRow={activeRow}
+                //      details={details} 
+                //     activeDrink={activeStatus}
+                //     setActiveDrink={this.setActiveDrink}
+                //     inProfileListRow={inProfileListRow}
+                // />
+            // )
+            // drinkItems.push(drinkItem)
         }
 
         let drinkShow;

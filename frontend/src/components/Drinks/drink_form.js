@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import './drink_form.scss'
 
 class DrinkForm extends React.Component {
 
@@ -15,6 +16,7 @@ class DrinkForm extends React.Component {
             photoFile: null,
             photoUrl: null
         }
+        this.cat_array = ["Vodka", "Rum", "Whiskey", "Gin", "Tequila", "Beer", "Brandy"];
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.submitR = this.submitR.bind(this);
@@ -25,7 +27,7 @@ class DrinkForm extends React.Component {
     //     this.props.fetchDrink(this.props.match.params.id)
     // };
 
-      loginMust() {
+    loginMust() {
         alert('Log In User before submitting a Drink')
     }
 
@@ -37,16 +39,10 @@ class DrinkForm extends React.Component {
         return e => this.setState({
             [f]: e.target.value
         });
+    
     }
 
     handleSubmit(e) {
-    //     e.preventDefault();
-    //    if(this.props.currentUser){
-    //     this.props.createDrink(this.state)
-    //     this.submitR()
-    //    }else{
-    //        this.loginMust()
-    //    }
 
     const formData = new FormData();
     formData.append('title', this.state.title);
@@ -58,8 +54,6 @@ class DrinkForm extends React.Component {
     if (this.state.photoFile) {
       formData.append('photo', this.state.photoFile);
     }
-
-    console.log(this.state)
 
     this.props.processForm(formData);
     }
@@ -83,11 +77,12 @@ class DrinkForm extends React.Component {
         if (file) {
         fileReader.readAsDataURL(file);
         }
-  }
+    }
+
     renderErrors() {
         return (
             <ul>
-                {this.props.errors.map((error, i) => (
+                {Object.values(this.props.errors).map((error, i) => (
                     <li className="drink-errors" key={`error-${i}`}>
                         {error}
                     </li>
@@ -97,48 +92,51 @@ class DrinkForm extends React.Component {
     }
 
     render() {
-        // if (this.props.drink === undefined) { return null 
-        // } else {
-            console.log('prop', this.props)
         return (
              <div className='form-box'>
-                    <div className='ftitle'>Create a Drink!</div>
-                        <form className='drink-form' onSubmit={this.handleSubmit}>  
-                                <div className='title-text'>Please input below a title and category! </div>
-                                    <input type="string" value={this.state.title} className="drink-title" onChange={this.update("title")} /> 
-                                    <input type="string" value={this.state.category} className="drink-category" onChange={this.update("category")} />                                                        
-                                <div className='ingredients'>
-                                    <textarea className='rtext' rows='15' cols='40'
-                                        value={this.state.ingredients}
-                                        onChange={this.update('ingredients')}
-                                        placeholder='Please leave the ingredients of your drink!'
-                                    />
-                                </div>
-                                 <div className='directions'>
-                                    <textarea className='rtext' rows='15' cols='40'
-                                        value={this.state.directions}
-                                        onChange={this.update('directions')}
-                                        placeholder='Please leave the directions of making your drink!'
-                                    />
-                                </div>
-                            <div className='submit-button-box'>
-                                 <input
-                                    type="file"
-                                    accept="image/jpeg"
-                                    className="file-input"
-                                    required
-                                    onChange={this.handleFile}
-                                    />
-                                <div className='rform-button'>
-                                    <button className = 'submit-review'>Submit Drink</button>
-                                </div>
-                            </div>
-                        </form>
-                </div>
-          
-        )}
-        
-    // }
+
+                {console.log(this.props)}
+                <h1 className='ftitle'>Create a Drink!</h1>
+                <br/>
+                {this.renderErrors()}
+                <form className='drink-form' onSubmit={this.handleSubmit}>  
+                    <label>Title
+                        <input type="string" value={this.state.title} className="drink-title" onChange={this.update("title")} placeholder="Title"/> 
+                    </label>
+                    <label>Category
+                        <select value={this.state.category} className="drink-category" onChange={this.update("category")}>
+                            <option id="default" value="">Category</option>
+                            {this.cat_array.map((category, i) =>
+                                <option  key={`${category}-${i}`} value={category}>{category}</option>
+                            )}
+                        </select>                                                        
+                    </label>
+                    <label>Ingredients
+                        <textarea className='rtext' rows='15' cols='40'
+                            value={this.state.ingredients}
+                            onChange={this.update('ingredients')}
+                            placeholder='Please leave the ingredients of your drink, seperated by comma!'
+                        />
+                    </label>
+                    <label>Directions
+                        <textarea className='rtext' rows='15' cols='40'
+                            value={this.state.directions}
+                            onChange={this.update('directions')}
+                            placeholder='Please leave the directions of making your drink!'
+                        />
+                    </label>
+                    <input
+                        type="file"
+                        accept="image/jpeg"
+                        className="file-input"
+                        required
+                        onChange={this.handleFile}
+                    />
+                    <button className = 'submit-button'>Submit Drink</button>
+                </form>
+            </div>
+        )
+    }
 }
 
 

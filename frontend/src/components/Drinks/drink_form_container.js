@@ -5,7 +5,8 @@ import { fetchDrink } from "../../actions/drink_actions"
 
 const mapStateToProps = (state, ownProps) => ({   
         currentUser: state.session.user.id,
-        drink: state.entities.drinks[ownProps.match.params.id]
+        drink: state.entities.drinks[ownProps.match.params.id],
+        errors: state.errors.drinks
     })
 
 const mapDispatchToProps = dispatch => ({

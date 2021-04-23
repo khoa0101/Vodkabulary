@@ -1,6 +1,8 @@
 .discover-main {
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    background-color: #c7a2a2;
+    background-image: linear-gradient(to bottom,#1C5D99, rgb(0, 39, 65));
 }
 
 .discover-hero-container {
@@ -9,11 +11,9 @@
 }
 
 .discover-rows-container {
-    width: 100%;
     margin-top: -90px;
     position: relative;
 
     display: flex;
     flex-direction: column;
-    z-index: 100;
 }

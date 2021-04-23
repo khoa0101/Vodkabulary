@@ -11,8 +11,10 @@ import { RECEIVE_DRINKS, RECEIVE_USER_DRINKS, RECEIVE_DRINK } from '../actions/d
       case RECEIVE_USER_DRINKS:
         newState = action.drinks.data;
         return newState;
+        
       case RECEIVE_DRINK:
-          newState[action.drink.data.id ] = action.drink.data;
+        console.log("this",action.drink)
+          newState[action.drink.data._id ] = action.drink.data;
           return newState;
       default:
         return state;
