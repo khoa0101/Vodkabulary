@@ -27,7 +27,7 @@ class DrinkShow extends React.Component {
         <div key={drink._id} className="Drink-Container">
             <div className='Drink-Name'>
             <Link to={`/users/${drink.user}`}>
-                {drink.user.username}
+                Made by {drink.user.username}
             </Link>
             </div>    
              <div className='Drink-Pic'>
@@ -48,8 +48,9 @@ class DrinkShow extends React.Component {
                     <p>{drink.directions}</p>
                 </div>
                 <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
-                <Link to={`/review/drink/${drink._id}`}>Leave a review!</Link>
+                <div className="review-button"><Link to={`/review/drink/${drink._id}`}>Leave a review!</Link></div>
             </div>
+            
          </div>
         )
     }
