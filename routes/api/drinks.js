@@ -81,7 +81,7 @@ router.patch(
     }
 
     req.body.ingredients = req.body.ingredients.split(",").map((item) => item.trim());
-    console.log(req.body);
+ 
 
     // check if drink belongs user requesting the edit
     if (req.user.id != req.body.author){
@@ -96,7 +96,7 @@ router.patch(
       { new: true, useFindAndModify: false }
     )
       .then((drink) => {
-        console.log(drink);
+        (drink);
         return res.status(200).send(drink);
       })
       .catch((err) => status(404).json({ error: err }));

@@ -10,7 +10,7 @@ class ReviewIndex extends React.Component {
         this.props.fetchDrinkReviews()
     }
     render() {
-        console.log("reviewsprops", this.props)
+
         let reviews=this.props.reviews
         if(this.props.reviews.length === 0) return null;
         return (
