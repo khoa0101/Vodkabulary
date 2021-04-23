@@ -30,11 +30,21 @@ footer{
 
   .custom-shape-divider-top-1618953969 .shape-fill {
       fill:  rgb(0, 39, 65);
-    }
+  }
+  
   .credits{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     color: black;
     padding: 20px 10%;
     font-size: 12px;
     background-color: #BBCDE5;
+    img{
+      width: 48px;
+      height: 48px;
+    }
   }
+
+
 }
