@@ -26,9 +26,9 @@ class DrinkShow extends React.Component {
         return(
         <div key={drink._id} className="Drink-Container">
             <div className='Drink-Name'>
-            <Link to={`/users/${drink.user}`}>
-                Made by {drink.user.username}
-            </Link>
+            {/* <Link to={`/users/${drink.user}`}> */}
+            <h2>Made by {drink.user.username}</h2>
+            {/* </Link> */}
             </div>    
              <div className='Drink-Pic'>
                 <div className="title">
