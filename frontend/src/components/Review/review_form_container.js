@@ -3,11 +3,12 @@ import ReviewForm from './review_form';
 import { createReview } from "../../actions/review_actions";
 import { fetchDrink } from "../../actions/drink_actions"
 
-const mapStateToProps = (state, ownProps) => ({   
-        currentUser: state.session.user.id,
-        drink: state.entities.drinks[ownProps.match.params.id]
-        
-    })
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.session.user.id,
+  drink: state.entities.drinks.filter(
+    (drink) => drink._id === ownProps.match.params.id
+  )[0],
+});
 
 const mapDispatchToProps = (dispatch,ownProps) => ({
     action: review => dispatch(createReview(review)),
