@@ -186,6 +186,15 @@ function drinkSeeds(usersArr) {
       photo: urlPreFix + "betweensheets.jpg",
       category: "rum",
     }),
+    new Drink({
+      user: randUserId(),
+      title: "Gin and Coke",
+      ingredients:
+        "2 ounces (1/4 cup) gin, 4 ounces (1/2 cup) cola, 1 lime wedge or 1/2 ounce lime juice (1 tablespoon)",
+      directions: "Add the gin and ice to a glass and stir to combine. Top with the cola. Squeeze in the juice from the lime wedge (or 1/2 ounce lime juice) and serve. Garnish with additional lime wedges or wheels.",
+      photo: urlPreFix + "gincoke.jpg",
+      category: "gin",
+    }),
   ];
 }
 
