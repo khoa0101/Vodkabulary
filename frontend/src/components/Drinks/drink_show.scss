@@ -1,0 +1,33 @@
+.Drink-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom,#1C5D99, rgb(0, 39, 65));
+    padding-bottom: 20px;
+}
+
+.Drink-Name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C5D99;
+}
+
+.Drink-Pic{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    background-image: linear-gradient(to bottom,#1C5D99, rgb(0, 39, 65));
+    padding: 20px ;
+    h2{
+        display: block;
+    }
+    img{
+        height: 250px;
+        width: 250px;
+        margin: 10px;
+    }
+}

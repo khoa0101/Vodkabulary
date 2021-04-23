@@ -33,11 +33,13 @@ class DrinkShow extends React.Component {
              <div className='Drink-Pic'>
                 <h2>{drink.title}</h2>
                 <img src={`${drink.photo}`} alt="" />
-                <ul><h2>Ingredients</h2>
-                    {drink.ingredients.map(ingre => 
-                        <li>{ingre}</li>    
+                <h2>Ingredients</h2>
+                <ul>
+                    {drink.ingredients.map((ingre, i) => 
+                        <li key={i}>{ingre}</li>    
                     )}
                 </ul>
+                <h2>Directions</h2>
                 <p>{drink.directions}</p>
                 <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
                 <Link to={`/review/drink/${drink._id}`}>Leave a review!</Link>

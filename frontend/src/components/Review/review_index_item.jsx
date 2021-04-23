@@ -38,23 +38,16 @@ class ReviewIndexItem extends React.Component {
             <div>
                 <div className='rev-box'>
                     <div className='rev-author'>
-                        <div className='photo-box'>
-                            <img className='face-photo'
-                                src={window.face} />
-                        
-                        <div className='author-name'>
-                            {username}
-                            <div className='review-item-rating'>
-                            </div>
-                            </div>
+                    <div className='author-name'>
+                        {username}
+                        <div className='review-item-rating'>
                         </div>
                     </div>
                     <div className='rev-body'>
                         <p>{this.props.review.body}</p>
                     </div>
-                    <div className="del-btn">{this.deleteButton()}</div>
-                
-                    
+                    <div className="del-btn">{this.deleteButton()}</div>               
+                    </div>
                 </div>
             </div>
         )
