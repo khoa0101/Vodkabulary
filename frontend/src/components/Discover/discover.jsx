@@ -1,55 +1,47 @@
 import React from "react";
 import DrinkRow from "../DrinkRow/drink_row";
 import "./discover.scss";
-
+import {Link} from 'react-router-dom';
 class Discover extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
 
     componentDidMount() {
         const { fetchDrinks } = this.props;
+        fetchDrinks()
     }
+
+    // componentDidMount() {
+    //     const { fetchDrinks } = this.props;
+    // }
     
     render() {
         const { drinks } = this.props;
-       
+       console.log(drinks)
         let drinkRows = [];
 
-        //     () {
-        //     drinks = Object.entries(drinks)
-        //     let drinkRow = (
-        //         <movie key={title} title={title} drinks={drinks} history={this.props.history} />
-        //     )
-        //     drinkRows.push(drinkRow);
-        // }
-
-        // if (profileList.drinks && profileList.drinks.length > 0) {
-
-        //     let formattedDrinks = {};
-        //     let listDrinks = profileList.drinks;
         
-
-        //     listDrinks.forEach(drink => {
-        //         formattedDrinks[drink.title] = drink
-        //     })
-
-        //     formattedDrinks = Object.entries(formattedDrinks);
-
-        //     let listDrinkRow = (
-        //         <DrinkRow key={"myList"} title={"My List"} drinks={formattedDrinks} history={this.props.history} hideTitle={false} hideGenre={true} />
-        //     )
-
-        //     drinkRows.unshift(listDrinkRow);
-        // }
-        
+       
+       
         return (
             <main className="discover-main">
                 <section className="discover-hero-container">             
                 </section>
 
                 <section className="discover-rows-container">
-                    {drinkRows}
+                    <ul>
+                    {drinks.map(drink =>(
+            
+                         <li key={drink._id}>   
+                                <Link to={`/drink/${drink._id}`}>
+                                 {drink.title}
+                                <img src={drink.photo}/> 
+                                </Link>
+            
+                        </li>)
+                    )}
+                    </ul>
                 </section>
             </main>
         )

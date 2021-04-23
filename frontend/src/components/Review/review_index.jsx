@@ -14,7 +14,8 @@ class ReviewIndex extends React.Component {
         let reviews=this.props.reviews
         if(this.props.reviews.length === 0) return null;
         return (
-            <div>
+            <div className="reviews">
+                <h2>Reviews</h2>
                 {reviews.map((r, idx) => {
                     // let author = Object.assign({}, this.props.users[r.author_id])
                         return (

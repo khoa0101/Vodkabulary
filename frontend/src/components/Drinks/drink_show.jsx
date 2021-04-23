@@ -1,9 +1,7 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-import ReviewIndexContainer from '../Review/review_index_container'
-
-
+import ReviewIndexContainer from '../Review/review_index_container';
+import'./drink_show.scss';
 
 class DrinkShow extends React.Component {
 
@@ -32,26 +30,34 @@ class DrinkShow extends React.Component {
         if (this.props.drink === undefined) return null
              const {drink} = this.props;
         return(
-           
-            <div key={drink._id} className="Drink-Container">
-
+        <div key={drink._id} className="Drink-Container">
             <div className='Drink-Name'>
-                <Link to={`/users/${drink.user}`}>
-                    User Profile
-                </Link>
-                      
-                <div>
-                <div className='Drink-Pic'>
-                <img src={`${drink.photo}`} alt="" />
-                <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
+            <Link to={`/users/${drink.user}`}>
+                Made by {drink.user.username}
+            </Link>
+            </div>    
+             <div className='Drink-Pic'>
+                <div className="title">
+                    <h2>{drink.title}</h2>
+                    <img src={`${drink.photo}`} alt="" />
                 </div>
+                <div className="ingredients">
+                    <h2>Ingredients</h2>
+                    <ul>
+                        {drink.ingredients.map((ingre, i) => 
+                            <li key={i}>{ingre}</li>    
+                        )}
+                    </ul>
+                </div>
+                <div className="directions">
+                    <h2>Directions</h2>
+                    <p>{drink.directions}</p>
+                </div>
+                <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
+                <div className="review-button"><Link to={`/review/drink/${drink._id}`}>Leave a review!</Link></div>
+            </div>
             
-             
-        </div>
          </div>
-         </div>
-           
-           
         )
     }
 }
