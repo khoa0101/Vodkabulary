@@ -3,7 +3,21 @@ import React from 'react'
 class ReviewIndexItem extends React.Component {
     constructor(props) {
         super(props)
+    }
 
+    starPower(){
+        let starPower =[];
+        let rate = parseInt(this.props.review.rating);
+        let max = 5; // maximum rating
+        for (let i = 0; i < rate; i++) {
+            starPower.push(<span key={i} className="material-icons black"> grade </span>);
+        }
+        while(max > rate) {
+            starPower.push(<span key={max} className="material-icons white"> star_outline </span>);
+            max--;
+        }
+
+        return starPower;
     }
 
     handleDelete() {
@@ -38,7 +52,7 @@ class ReviewIndexItem extends React.Component {
                 <div className='rev-box'>
                     <div className='author-name-rate'>
                         {username}&nbsp;
-                        {this.props.review.rating}
+                        {this.starPower()}
                     </div>
                     <div className='rev-body'>
                         <p>{this.props.review.body}</p>

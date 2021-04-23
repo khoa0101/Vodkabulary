@@ -67,4 +67,14 @@
           transform: scale(1.2);
         }
     }
+
+    .rev-box{
+        padding: 10px;
+        .author-name-rate{
+            font-size: 12px;
+            span{
+                color: goldenrod;
+            }
+        }
+    }
 }
