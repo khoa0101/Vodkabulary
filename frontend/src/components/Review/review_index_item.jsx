@@ -23,8 +23,7 @@ class ReviewIndexItem extends React.Component {
             return (
                 <div className='rev-btn-place'>
                     <div className="rev-delete-btn"
-                        onClick={this.handleDelete()}>
-                        
+                        onClick={this.handleDelete()}>        
                     </ div>
                 </div>
             )
@@ -32,7 +31,7 @@ class ReviewIndexItem extends React.Component {
 
     render() {
        
-        let { username } = this.props.review
+        let { username } = this.props.review.author
 
         return (
             <div>

@@ -37,17 +37,9 @@ class Discover extends React.Component {
                                 <Link to={`/drink/${drink._id}`}>
                                  {drink.title}
                                 <img src={drink.photo}/> 
-
-                                
                                 </Link>
-                               
-
-            
             
                         </li>)
-
-                        
-
                     )}
                     </ul>
                 </section>
