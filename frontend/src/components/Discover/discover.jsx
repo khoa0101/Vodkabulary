@@ -21,7 +21,7 @@ class Discover extends React.Component {
                     <ul>
                     {drinks.map(drink =>(
             
-                         <li key={drink._id}>   
+                         <li key={`${drink.title}-${drink._id}`}>   
                                 <Link to={`/drink/${drink._id}`}>
                                  {drink.title}
                                 <img src={drink.photo} alt={drink.title}/> 

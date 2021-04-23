@@ -53,6 +53,7 @@ export const deleteDrink = id => dispatch => (
             dispatch(removeDrink(id))
     ))
 );
+
 export const fetchUserDrinks = id => dispatch => (
   drinkAPIUtil.getUserDrinks(id)
     .then(drinks => dispatch(receiveUserDrinks(drinks)))
@@ -66,7 +67,14 @@ export const createDrink = data => dispatch => (
   drinkAPIUtil.createDrink(data)
     .then(drink => dispatch(receiveDrink(drink)))
     .catch(err => {
-      
+      dispatch(receiveErrors(err.response.data));
+    })
+);
+
+export const updateDrink = (id, data) => dispatch => (
+  drinkAPIUtil.updateDrink(id, data)
+    .then(drink => dispatch(receiveDrink(drink)))
+    .catch(err => {
       dispatch(receiveErrors(err.response.data));
     })
 );
