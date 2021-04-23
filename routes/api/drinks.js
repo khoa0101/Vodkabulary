@@ -4,6 +4,7 @@ const passport = require("passport");
 const validateDrinkInput = require("../../validation/drink");
 const Drink = require("../../models/Drink");
 const upload = require("../../services/image_upload");
+const keys = require('../../config/keys')
 const uploadFile = require("../../services/image_upload");
 
 
@@ -36,10 +37,28 @@ router.get("/:id", (req, res) => {
 router.delete(
   "/:id",
   passport.authenticate("jwt", { session: false }),
-  (req, res) => {
+  async (req, res) => {
+    let url = await Drink.findById(req.params.id);
+    let key = url.split('/');
+    key = key[key.length - 1];
+
     Drink.deleteOne({ _id: req.params.id })
-      .then(() =>
-        res.status(200).json({ successfuldelete: "Deleted successfully!" })
+      .then(() => {
+        const s3 = new aws.S3({
+          accessKeyId: keys.AWS_ACCESS_KEY_ID,
+          secretAccessKey: keys.AWS_SECRET_KEY_ID,
+          Bucket: keys.AWS_BUCKET
+        });
+
+        s3.deleteObject({ Bucket: keys.AWS_BUCKET, Key: key},
+          (err, data) => {
+            console.error(err);
+            console.log(data);
+          }
+        );
+
+        return res.status(200).json({ msg: "Deleted successfully!", id: req.params.id })
+        }
       )
       .catch((err) =>
         res.status(404).json({ error: "No drink found with that ID" })
