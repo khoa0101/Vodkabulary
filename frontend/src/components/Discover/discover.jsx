@@ -9,11 +9,12 @@ class Discover extends React.Component {
 
     componentDidMount() {
         const { fetchDrinks } = this.props;
+        fetchDrinks()
     }
     
     render() {
         const { drinks } = this.props;
-       
+       console.log(drinks)
         let drinkRows = [];
 
         //     () {
