@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, Redirect, withRouter } from 'react-router-dom';
+import './review_form.scss';
 
 class ReviewForm extends React.Component {
     
@@ -60,34 +61,35 @@ class ReviewForm extends React.Component {
     render() {
         console.log("helper",this.props)
        if (this.props.drink === undefined) return null
-        return (
-            <div>
-            
-                <div className='form-box'>
-                    <div className='rtitle'>Write a Review for {this.props.drink.title}!</div>
-                    <div className='rinfo-box'>
-                        <form className='rform' onSubmit={this.handleSubmit}>
-                                    <div className='rating-text'>Please select below a rating from 1 through 5! </div>
-                                    <input type="number" value={this.state.rating} className="rating-rev" min="1" max="5" onChange={this.update("rating")} />                              
-                                
-                                <div className='rbody'>
-                                    <textarea className='rtext' rows='15' cols='40'
-                                        value={this.state.body}
-                                        onChange={this.update('body')}
-                                        placeholder='Please leave a review for this drink!'
-                                    />
-                                </div>
-                            <div className='submit-button-box'>
-                                <div className='rform-button'>
-                                    <button className = 'submit-review'>Submit Review</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        return ( 
+            <div className='form-box'>
+                <h1 className='rtitle'>Write a Review for {this.props.drink.title}!</h1>
+                <form className='rform' onSubmit={this.handleSubmit}>
+                    <label className='star-label'>Please select a rating
+                        <div className="star">
+                            <input type="radio" id="star5" name="rate" value="5" onClick={this.update("rating")}/>
+                            <label htmlFor="star5" title="text"/>
+                            <input type="radio" id="star4" name="rate" value="4" onClick={this.update("rating")}/>
+                            <label htmlFor="star4" title="text"/>
+                            <input type="radio" id="star3" name="rate" value="3" onClick={this.update("rating")}/>
+                            <label htmlFor="star3" title="text"/>
+                            <input type="radio" id="star2" name="rate" value="2" onClick={this.update("rating")}/>
+                            <label htmlFor="star2" title="text"/>
+                            <input type="radio" id="star1" name="rate" value="1" onClick={this.update("rating")}/>                             
+                            <label htmlFor="star1" title="text"/>
+                        </div>
+                    </label>
+                    <label>Review
+                        <textarea
+                            value={this.state.body}
+                            onChange={this.update('body')}
+                            placeholder='Please leave a review for this drink!'
+                        />
+                    </label>
+                <button className = 'submit-button'>Submit Review</button>        
+                </form>
             </div>
-        )}
-        
+        )}    
 }
 
 export default withRouter(ReviewForm)

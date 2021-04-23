@@ -23,8 +23,7 @@ class ReviewIndexItem extends React.Component {
             return (
                 <div className='rev-btn-place'>
                     <div className="rev-delete-btn"
-                        onClick={this.handleDelete()}>
-                        
+                        onClick={this.handleDelete()}>        
                     </ div>
                 </div>
             )
@@ -32,29 +31,19 @@ class ReviewIndexItem extends React.Component {
 
     render() {
        
-        let { username } = this.props.review
+        let { username } = this.props.review.author
 
         return (
             <div>
                 <div className='rev-box'>
-                    <div className='rev-author'>
-                        <div className='photo-box'>
-                            <img className='face-photo'
-                                src={window.face} />
-                        
-                        <div className='author-name'>
-                            {username}
-                            <div className='review-item-rating'>
-                            </div>
-                            </div>
-                        </div>
+                    <div className='author-name-rate'>
+                        {username}&nbsp;
+                        {this.props.review.rating}
                     </div>
                     <div className='rev-body'>
                         <p>{this.props.review.body}</p>
                     </div>
-                    <div className="del-btn">{this.deleteButton()}</div>
-                
-                    
+                    <div className="del-btn">{this.deleteButton()}</div>               
                 </div>
             </div>
         )
