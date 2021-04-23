@@ -13,20 +13,14 @@ class DrinkShow extends React.Component {
 
         // this.addDrinkToList = this.addDrinkToList.bind(this);
         // this.removeDrinkFromList = this.removeDrinkFromList.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
+
     }
 
        componentDidMount(){
         this.props.fetchDrink(this.props.match.params.id)  
       
     }
-    
-  handleDelete(e){ 
-        // return(e)=>{
-        e.preventDefault();
-            this.props.deleteDrink(this.props.drink._id).then(this.props.history.push('/discover/'))
-        // }
-    }
+
     render() {
      
         if (this.props.drink === undefined) return null
@@ -58,7 +52,7 @@ class DrinkShow extends React.Component {
                 <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
                 <div className="review-button"><Link to={`/review/drink/${drink._id}`}>Leave a review!</Link></div>
             </div>
-             {(this.props.currentUser.id === this.props.drink.user._id) && <button className='del-drink' onClick={this.handleDelete}>Delete Drink</button>}
+             {(this.props.currentUser.id === this.props.drink.user._id) && <Link to={`/drink/${drink._id}/edit`}>Edit Drink</Link>}
          </div>
         )
     }
