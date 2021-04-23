@@ -22,6 +22,12 @@ class DrinkShow extends React.Component {
       
     }
     
+  handleDelete(){ 
+        return(e)=>{
+        e.preventDefault();
+            this.props.deleteDrink(this.props.drinkId).then(window.location.reload())
+        }
+    }
     render() {
         if (this.props.drink === undefined) return null
              const {drink} = this.props;
