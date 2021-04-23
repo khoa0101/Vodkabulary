@@ -11,6 +11,7 @@ const uploadFile = require("../../services/image_upload");
 router.get("/", (req, res) => {
   Drink.find()
     .sort({ date: -1 })
+    .populate("user", "username")
     .then((drinks) => res.json(drinks))
     .catch((err) => res.status(400).json(err));
 });
@@ -18,6 +19,7 @@ router.get("/", (req, res) => {
 // GET a user's Drinks
 router.get("/user/:user_id", (req, res) => {
   Drink.find({ user: req.params.user_id })
+    .populate("user", "username")
     .then((drinks) => res.json(drinks))
     .catch((err) => res.status(400).json(err));
 });
@@ -25,6 +27,7 @@ router.get("/user/:user_id", (req, res) => {
 // GET a Drink
 router.get("/:id", (req, res) => {
   Drink.findById(req.params.id)
+    .populate("user", "username")
     .then((drink) => res.json(drink))
     .catch((err) => res.status(400).json(err));
 });
@@ -101,7 +104,9 @@ router.post(
         photo: req.file.location,
       });
 
-      newDrink.save().then((drink) => res.json(drink));
+      newDrink
+        .save()
+        .then((drink) => res.json(drink.populate("user", "username")));
     } else {
        return res.status(400).json({error: 'Drink image required'});
     }
