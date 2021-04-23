@@ -27,6 +27,7 @@ class DrinkShow extends React.Component {
         <div key={drink._id} className="Drink-Container">
             <div className='Drink-Name'>
                 <Link to={`/users/${drink.user}`}>
+                    {drink.user.username}
                 </Link>
                       
              <div className='Drink-Pic'>
