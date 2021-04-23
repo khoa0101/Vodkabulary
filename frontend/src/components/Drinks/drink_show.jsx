@@ -1,9 +1,7 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
-import ReviewIndexContainer from '../Review/review_index_container'
-
-
+import ReviewIndexContainer from '../Review/review_index_container';
+import'./drink_show.scss';
 
 class DrinkShow extends React.Component {
 
@@ -26,26 +24,17 @@ class DrinkShow extends React.Component {
         if (this.props.drink === undefined) return null
              const {drink} = this.props;
         return(
-           
-            <div key={drink._id} className="Drink-Container">
-
+        <div key={drink._id} className="Drink-Container">
             <div className='Drink-Name'>
                 <Link to={`/users/${drink.user}`}>
-                    User Profile
                 </Link>
                       
-                <div>
-                <div className='Drink-Pic'>
+             <div className='Drink-Pic'>
                 <img src={`${drink.photo}`} alt="" />
-                <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
+                    <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
                 </div>
-            
-             
-        </div>
+            </div>
          </div>
-         </div>
-           
-           
         )
     }
 }

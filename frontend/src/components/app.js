@@ -20,9 +20,9 @@ const App = () => (
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/discover" component={DiscoverContainer} /> 
       <ProtectedRoute exact path="/createDrink" component={DrinkCreateContainer}/>
-       <ProtectedRoute exact path="/drink/:id" component={DrinkShowContainer}/>
+      <ProtectedRoute exact path="/drink/:id" component={DrinkShowContainer}/>
        {/* test route */}
-       <ProtectedRoute exact path="/review/drink/:id" component={ReviewFormContainer}/>
+      <ProtectedRoute exact path="/review/drink/:id" component={ReviewFormContainer}/>
     </Switch>
     <Footer />
   </div>

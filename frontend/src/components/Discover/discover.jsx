@@ -7,9 +7,9 @@ class Discover extends React.Component {
         super(props)
     }
 
-    componentDidMount() {
-        const { fetchDrinks } = this.props;
-    }
+    // componentDidMount() {
+    //     const { fetchDrinks } = this.props;
+    // }
     
     render() {
         const { drinks } = this.props;
