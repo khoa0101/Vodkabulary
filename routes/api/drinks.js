@@ -102,6 +102,8 @@ router.post(
       });
 
       newDrink.save().then((drink) => res.json(drink));
+    } else {
+       return res.status(400).json({error: 'Drink image required'});
     }
   }
 );
