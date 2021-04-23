@@ -7,6 +7,7 @@ const Review = require("../../models/Review");
 // Get a drinks reviews
 router.get("/drink/:drinkId", (req, res) => {
   Review.find({ drinkId: req.params.drinkId })
+    .populate("author", "username")
     .then((reviews) => res.json(reviews))
     .catch((err) => res.status(400).json(err));
 });
@@ -14,6 +15,7 @@ router.get("/drink/:drinkId", (req, res) => {
 // GET a user's Reviews
 router.get("/author/:user_id", (req, res) => {
   Review.find({ author: req.params.user_id })
+    .populate("author", "username")
     .then((reviews) => res.json(reviews))
     .catch((err) => res.status(400).json(err));
 });
@@ -21,6 +23,7 @@ router.get("/author/:user_id", (req, res) => {
 // GET a Review
 router.get("/:id", (req, res) => {
   Review.findById(req.params.id)
+    .populate("author", "username")
     .then((review) => res.json(review))
     .catch((err) => res.status(400).json(err));
 });

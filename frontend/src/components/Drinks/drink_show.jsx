@@ -27,21 +27,30 @@ class DrinkShow extends React.Component {
         <div key={drink._id} className="Drink-Container">
             <div className='Drink-Name'>
             <Link to={`/users/${drink.user}`}>
-                {drink.user.username}
+                Made by {drink.user.username}
             </Link>
             </div>    
              <div className='Drink-Pic'>
-                <h2>{drink.title}</h2>
-                <img src={`${drink.photo}`} alt="" />
-                <ul><h2>Ingredients</h2>
-                    {drink.ingredients.map(ingre => 
-                        <li>{ingre}</li>    
-                    )}
-                </ul>
-                <p>{drink.directions}</p>
+                <div className="title">
+                    <h2>{drink.title}</h2>
+                    <img src={`${drink.photo}`} alt="" />
+                </div>
+                <div className="ingredients">
+                    <h2>Ingredients</h2>
+                    <ul>
+                        {drink.ingredients.map((ingre, i) => 
+                            <li key={i}>{ingre}</li>    
+                        )}
+                    </ul>
+                </div>
+                <div className="directions">
+                    <h2>Directions</h2>
+                    <p>{drink.directions}</p>
+                </div>
                 <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
-                <Link to={`/review/drink/${drink._id}`}>Leave a review!</Link>
+                <div className="review-button"><Link to={`/review/drink/${drink._id}`}>Leave a review!</Link></div>
             </div>
+            
          </div>
         )
     }
