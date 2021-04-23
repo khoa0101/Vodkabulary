@@ -4,6 +4,7 @@ const passport = require("passport");
 const validateDrinkInput = require("../../validation/drink");
 const Drink = require("../../models/Drink");
 const upload = require("../../services/image_upload");
+const aws = require("aws-sdk");
 const keys = require('../../config/keys')
 const uploadFile = require("../../services/image_upload");
 
@@ -38,31 +39,33 @@ router.delete(
   "/:id",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    let url = await Drink.findById(req.params.id);
-    let key = url.split('/');
+    let drink = await Drink.findById(req.params.id);
+    let key = drink.photo.split('/');
     key = key[key.length - 1];
-
-    Drink.deleteOne({ _id: req.params.id })
-      .then(() => {
-        const s3 = new aws.S3({
-          accessKeyId: keys.AWS_ACCESS_KEY_ID,
-          secretAccessKey: keys.AWS_SECRET_KEY_ID,
-          Bucket: keys.AWS_BUCKET
-        });
-
-        s3.deleteObject({ Bucket: keys.AWS_BUCKET, Key: key},
-          (err, data) => {
-            console.error(err);
-            console.log(data);
-          }
-        );
-
-        return res.status(200).json({ msg: "Deleted successfully!", id: req.params.id })
+    const s3 = new aws.S3({
+      accessKeyId: keys.AWS_ACCESS_KEY_ID,
+      secretAccessKey: keys.AWS_SECRET_KEY_ID,
+      Bucket: keys.AWS_BUCKET,
+    });
+    s3.deleteObject(
+      { Bucket: keys.AWS_BUCKET, Key: key },
+      (err, data) => {
+        if (err) {
+          console.error(err);
+          res.status(404).json({ error: err });
         }
-      )
-      .catch((err) =>
-        res.status(404).json({ error: "No drink found with that ID" })
-      );
+        Drink.deleteOne({ _id: req.params.id })
+          .then(() => {
+            return res
+              .status(200)
+              .json({ msg: "Deleted successfully!", id: req.params.id });
+          })
+          .catch((err) =>
+            res.status(404).json({ error: "No drink found with that ID" })
+          );
+        
+      }
+    );
   }
 );
 
@@ -77,29 +80,29 @@ router.patch(
       return res.status(400).json(errors);
     }
 
-    const {title, category, directions, ingredients} = req.body;
+    req.body.ingredients = req.body.ingredients.split(",").map((item) => item.trim());
+    console.log(req.body);
 
-      // check if drink belongs user requesting the edit
-      if (req.user.id != req.body.author){
-        return res.status(400).json({ error: "cant update some another user's drink"})
-      }
+    // check if drink belongs user requesting the edit
+    if (req.user.id != req.body.author){
+      return res.status(400).json({ error: "cant update some another user's drink"})
+    }
 
-      Drink.findOneAndUpdate(
-        { _id: req.params.id },
-        {
-          $set: {
-            title,
-            directions,
-            category,
-            ingredients: ingredients.split(",").map((el) => el.trim()),
-          },
-        },
-        { returnOriginal: false, useFindAndModify: false }
-      )
-        .then((drink) => res.status(200).send(drink))
-        .catch((err) => status(404).json({ error: err }));
+    Drink.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: req.body,
+      },
+      { new: true, useFindAndModify: false }
+    )
+      .then((drink) => {
+        console.log(drink);
+        return res.status(200).send(drink);
+      })
+      .catch((err) => status(404).json({ error: err }));
   }
 );
+
 
 // Create a drink
 router.post(
