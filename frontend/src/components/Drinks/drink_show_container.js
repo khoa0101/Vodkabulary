@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import {fetchDrink} from "../../actions/drink_actions"
+import {fetchDrink, deleteDrink} from "../../actions/drink_actions"
 // import { addDrinkToList, removeDrinkFromList } from "../../actions/list_actions";
  
 import DrinkShow from "./drink_show"
@@ -7,13 +7,14 @@ import DrinkShow from "./drink_show"
 const msp = (state, ownProps) => ({
    loggedIn: state.session.isAuthenticated,
    currentUser: state.session.user,
-   drink: state.entities.drinks[ownProps.match.params.id]
-   
+   drink: state.entities.drinks.filter(drink => drink._id === ownProps.match.params.id)[0]
+
 });
 const mdp = dispatch => ({
    fetchDrink: (id) => dispatch(fetchDrink(id)),
+
     
-    // deleteDrink: (id) => dispatch(deleteDrink(id)),
+    deleteDrink: (id) => dispatch(deleteDrink(id)),
    
     // addDrinkToList: listItemInfo => dispatch(addDrinkToList(listItemInfo)),
     // removeDrinkFromList: listItemId => dispatch(removeDrinkFromList(listItemId)),

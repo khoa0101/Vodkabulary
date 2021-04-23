@@ -14,7 +14,7 @@ const mapStateToProps= (state,ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    console.log("is",ownProps)
+
     return ({
         deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
         fetchDrinkReviews: () => dispatch(fetchDrinkReviews(ownProps.drinkId)),

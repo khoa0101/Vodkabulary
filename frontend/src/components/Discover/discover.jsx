@@ -18,7 +18,7 @@ class Discover extends React.Component {
     
     render() {
         const { drinks } = this.props;
-       console.log(drinks)
+
         let drinkRows = [];
 
         

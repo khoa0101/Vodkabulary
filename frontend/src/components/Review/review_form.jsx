@@ -37,7 +37,7 @@ class ReviewForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
     //    if(this.props.currentUser){
-        console.log("help",this.state)
+
         this.props.createReview(this.props.match.params.id,this.state)
         this.submitR()
     //    }else{
@@ -59,7 +59,7 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-        console.log("helper",this.props)
+  
        if (this.props.drink === undefined) return null
         return ( 
             <div className='form-box'>

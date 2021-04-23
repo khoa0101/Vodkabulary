@@ -95,7 +95,7 @@ class DrinkForm extends React.Component {
         return (
              <div className='form-box'>
 
-                {console.log(this.props)}
+        
                 <h1 className='ftitle'>Create a Drink!</h1>
                 <br/>
                 {this.renderErrors()}
