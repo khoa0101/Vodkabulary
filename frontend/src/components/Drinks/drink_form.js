@@ -60,7 +60,7 @@ class DrinkForm extends React.Component {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-            let [name, extension] = file.name.split(".");
+            let extension = file.name.split(".")[1];
             extension = extension.toLowerCase();
 
             // If the extensions don't match the following, state will not be set.

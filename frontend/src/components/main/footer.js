@@ -16,7 +16,7 @@ class Footer extends React.Component {
             <li>Built by <a href="https://github.com/chrisaugust29">Chris</a>, <a href="https://github.com/Kevinsebmat">Kevin</a>, <a href="https://github.com/Cris415">Cristian</a>, <a href="https://github.com/khoa0101">and Khoa</a></li>
             <li>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a></li>
           </ul>
-          <a href="https://github.com/khoa0101/Vodkabulary"><img src="GitHub-Mark-Light-64px.png"/></a>
+          <a href="https://github.com/khoa0101/Vodkabulary"><img src="GitHub-Mark-Light-64px.png" alt="github-img"/></a>
         </div>
         
       </footer>

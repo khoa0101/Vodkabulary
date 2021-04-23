@@ -1,29 +1,17 @@
 import React from "react";
-import DrinkRow from "../DrinkRow/drink_row";
+// import DrinkRow from "../DrinkRow/drink_row";
 import "./discover.scss";
 import {Link} from 'react-router-dom';
 class Discover extends React.Component {
-    // constructor(props) {
-    //     super(props)
-    // }
+
 
     componentDidMount() {
         const { fetchDrinks } = this.props;
         fetchDrinks()
     }
 
-    // componentDidMount() {
-    //     const { fetchDrinks } = this.props;
-    // }
-    
     render() {
         const { drinks } = this.props;
-
-        let drinkRows = [];
-
-        
-       
-       
         return (
             <main className="discover-main">
                 <section className="discover-hero-container">             
@@ -36,7 +24,7 @@ class Discover extends React.Component {
                          <li key={drink._id}>   
                                 <Link to={`/drink/${drink._id}`}>
                                  {drink.title}
-                                <img src={drink.photo}/> 
+                                <img src={drink.photo} alt={drink.title}/> 
                                 </Link>
             
                         </li>)

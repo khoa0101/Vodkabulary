@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './review_form.scss';
 
 class ReviewForm extends React.Component {
@@ -36,13 +36,8 @@ class ReviewForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-    //    if(this.props.currentUser){
-
         this.props.createReview(this.props.match.params.id,this.state)
         this.submitR()
-    //    }else{
-    //        this.loginMust()
-    //    }
     }
 
     renderErrors() {
@@ -59,7 +54,6 @@ class ReviewForm extends React.Component {
     }
 
     render() {
-        console.log(this.props)
        if (this.props.drink === undefined) return null
         return ( 
             <div className='form-box'>
