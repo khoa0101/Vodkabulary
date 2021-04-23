@@ -1,10 +1,6 @@
 import React from 'react'
 
 class ReviewIndexItem extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     starPower(){
         let starPower =[];
         let rate = parseInt(this.props.review.rating);
