@@ -1,6 +1,8 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import ReviewIndexContainer from '../Review/review_index_container'
+
 
 
 class DrinkShow extends React.Component {
@@ -11,8 +13,8 @@ class DrinkShow extends React.Component {
         this.state = {
         }
 
-        this.addDrinkToList = this.addDrinkToList.bind(this);
-        this.removeDrinkFromList = this.removeDrinkFromList.bind(this);
+        // this.addDrinkToList = this.addDrinkToList.bind(this);
+        // this.removeDrinkFromList = this.removeDrinkFromList.bind(this);
     }
 
        componentDidMount(){
@@ -21,7 +23,7 @@ class DrinkShow extends React.Component {
     }
     
     render() {
-
+        if (this.props.drink === undefined) return null
              const {drink} = this.props;
         return(
            
@@ -35,6 +37,7 @@ class DrinkShow extends React.Component {
                 <div>
                 <div className='Drink-Pic'>
                 <img src={`${drink.photo}`} alt="" />
+                <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
                 </div>
             
              

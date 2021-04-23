@@ -7,17 +7,18 @@ class ReviewIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchReviews()
+        this.props.fetchDrinkReviews()
     }
     render() {
+        console.log("reviewsprops", this.props)
         let reviews=this.props.reviews
-        // if(this.props.reviews.length === 0) return null;
+        if(this.props.reviews.length === 0) return null;
         return (
             <div>
                 {reviews.map((r, idx) => {
-                    let author = Object.assign({}, this.props.users[r.author_id])
+                    // let author = Object.assign({}, this.props.users[r.author_id])
                         return (
-                            <ReviewIndexItem key={idx} review={rev} author={author} currentUser={this.props.currentUser} deleteReview={this.props.deleteReview}/>
+                            <ReviewIndexItem key={idx} review={r}  currentUser={this.props.currentUser} deleteReview={this.props.deleteReview}/>
                         )
                     }
                 )}

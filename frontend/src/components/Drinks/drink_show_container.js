@@ -7,7 +7,8 @@ import DrinkShow from "./drink_show"
 const msp = (state, ownProps) => ({
    loggedIn: state.session.isAuthenticated,
    currentUser: state.session.user,
-   drink: state.drinks[ownProps.match.params.id]
+   drink: state.entities.drinks[ownProps.match.params.id]
+   
 });
 const mdp = dispatch => ({
    fetchDrink: (id) => dispatch(fetchDrink(id)),

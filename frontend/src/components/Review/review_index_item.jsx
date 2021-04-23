@@ -53,7 +53,7 @@ class ReviewIndexItem extends React.Component {
                         <p>{this.props.review.body}</p>
                     </div>
                     <div className="del-btn">{this.deleteButton()}</div>
-                    <div className='time-stamp'>{date} </div>
+                
                     
                 </div>
             </div>

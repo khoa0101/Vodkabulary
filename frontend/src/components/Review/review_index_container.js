@@ -2,21 +2,23 @@ import React from 'react';
 import { deleteReview } from '../../actions/review_actions';
 import ReviewIndex from './review_index';
 import { connect } from 'react-redux';
-import { fetchReviews } from '../../actions/review_actions';
+import { fetchDrinkReviews } from '../../actions/review_actions';
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps= (state,ownProps) => {
     return ({
-        currentUser: state.session.id,
+        currentUser: state.session.user.id,
         ownProps,
         reviews: Object.values(state.entities.reviews)
     })
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
+    console.log("is",ownProps)
     return ({
         deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
-        fetchReviews: () => dispatch(fetchReviews()),
+        fetchDrinkReviews: () => dispatch(fetchDrinkReviews(ownProps.drinkId)),
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewIndex);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ReviewIndex));

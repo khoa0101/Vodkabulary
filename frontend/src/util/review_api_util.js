@@ -21,7 +21,7 @@ export const updateReview = (id, review) => {
 }; 
 
 export const createReview = (drinkId, review) => {
-    return axios.patch(`/api/reviews/drink/${drinkId}`,review)
+    return axios.post(`/api/reviews/drink/${drinkId}`,review)
 }; 
 
 

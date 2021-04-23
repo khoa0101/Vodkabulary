@@ -6,8 +6,8 @@ class ReviewForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            drink_id: this.props.match.params.id,
-            author_id: this.props.currentUser,
+            drinkId: this.props.match.params.id,
+            author: this.props.currentUser,
             rating: '',
             body: ''
         }
@@ -36,7 +36,8 @@ class ReviewForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
     //    if(this.props.currentUser){
-        this.props.createReview(this.state)
+        console.log("help",this.state)
+        this.props.createReview(this.props.match.params.id,this.state)
         this.submitR()
     //    }else{
     //        this.loginMust()
@@ -44,6 +45,7 @@ class ReviewForm extends React.Component {
     }
 
     renderErrors() {
+        
         return (
             <ul>
                 {this.props.errors.map((error, i) => (
@@ -56,6 +58,7 @@ class ReviewForm extends React.Component {
     }
 
     render() {
+        console.log("helper",this.props)
        if (this.props.drink === undefined) return null
         return (
             <div>
