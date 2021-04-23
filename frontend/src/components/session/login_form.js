@@ -14,12 +14,13 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
   }
 
   // Once the user has been authenticated, redirect to the main page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push('/main');
+      this.props.history.push('/discover');
     }
 
     this.setState({errors: nextProps.errors})
@@ -29,6 +30,12 @@ class LoginForm extends React.Component {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
+  }
+
+  loginDemo(e) {
+    e.preventDefault();
+    const demo = Object.assign({email: 'demo@mail.com', password: 'password'})
+    this.props.login(demo);
   }
 
   handleSubmit(e) {
@@ -80,6 +87,7 @@ class LoginForm extends React.Component {
             <input className="submit-button" type="submit" value="Submit" />
           </div>
         </form>
+        <button className="demo-login" onClick={this.loginDemo}>Demo User</button>
       </div>
     );
   }

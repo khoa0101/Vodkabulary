@@ -1,0 +1,50 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import ReviewIndexContainer from '../Review/review_index_container';
+import'./drink_show.scss';
+
+class DrinkShow extends React.Component {
+
+    constructor(props) {
+        super(props)
+
+        this.state = {
+        }
+
+        // this.addDrinkToList = this.addDrinkToList.bind(this);
+        // this.removeDrinkFromList = this.removeDrinkFromList.bind(this);
+    }
+
+       componentDidMount(){
+        this.props.fetchDrink(this.props.match.params.id)  
+      
+    }
+    
+    render() {
+        if (this.props.drink === undefined) return null
+             const {drink} = this.props;
+        return(
+        <div key={drink._id} className="Drink-Container">
+            <div className='Drink-Name'>
+            <Link to={`/users/${drink.user}`}>
+                {drink.user.username}
+            </Link>
+            </div>    
+             <div className='Drink-Pic'>
+                <h2>{drink.title}</h2>
+                <img src={`${drink.photo}`} alt="" />
+                <ul><h2>Ingredients</h2>
+                    {drink.ingredients.map(ingre => 
+                        <li>{ingre}</li>    
+                    )}
+                </ul>
+                <p>{drink.directions}</p>
+                <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
+                <Link to={`/review/drink/${drink._id}`}>Leave a review!</Link>
+            </div>
+         </div>
+        )
+    }
+}
+
+export default DrinkShow;

@@ -3,6 +3,9 @@ const router = express.Router();
 const passport = require("passport");
 const validateDrinkInput = require("../../validation/drink");
 const Drink = require("../../models/Drink");
+const upload = require("../../services/image_upload");
+const uploadFile = require("../../services/image_upload");
+
 
 // Get all drinks sorted by latest
 router.get("/", (req, res) => {
@@ -54,19 +57,25 @@ router.patch(
 
     const {title, category, directions, ingredients} = req.body;
 
-    Drink.findOneAndUpdate(
-      { _id: req.params.id },
-         {
-        $set: {
-          title,
-          directions,
-          category,
-          ingredients: ingredients.split(',').map(el => el.trim())
-        }
-      },
-      { returnOriginal: false, useFindAndModify: false })
-      .then(drink =>res.status(200).send(drink))
-      .catch(err => status(404).json({ error: err }))
+      // check if drink belongs user requesting the edit
+      if (req.user.id != req.body.author){
+        return res.status(400).json({ error: "cant update some another user's drink"})
+      }
+
+      Drink.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $set: {
+            title,
+            directions,
+            category,
+            ingredients: ingredients.split(",").map((el) => el.trim()),
+          },
+        },
+        { returnOriginal: false, useFindAndModify: false }
+      )
+        .then((drink) => res.status(200).send(drink))
+        .catch((err) => status(404).json({ error: err }));
   }
 );
 
@@ -74,22 +83,28 @@ router.patch(
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
+  uploadFile,
   (req, res) => {
-    const { isValid, errors } = validateDrinkInput(req.body);
+    if (req.file) {
+      const { isValid, errors } = validateDrinkInput(req.body);
+      
+      if (!isValid) {
+        return res.status(400).json(errors);
+      }
 
-    if (!isValid) {
-      return res.status(400).json(errors);
+      const newDrink = new Drink({
+        user: req.user.id,
+        title: req.body.title,
+        category: req.body.category,
+        ingredients: req.body.ingredients.split(",").map((el) => el.trim()),
+        directions: req.body.directions,
+        photo: req.file.location,
+      });
+
+      newDrink.save().then((drink) => res.json(drink));
+    } else {
+       return res.status(400).json({error: 'Drink image required'});
     }
-
-    const newDrink = new Drink({
-      user: req.user.id,
-      title: req.body.title,
-      category: req.body.category,
-      ingredients: req.body.ingredients.split(",").map((el) => el.trim()),
-      directions: req.body.directions,
-    });
-
-    newDrink.save().then((drink) => res.json(drink));
   }
 );
 

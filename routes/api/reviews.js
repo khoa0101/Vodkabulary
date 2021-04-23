@@ -4,6 +4,12 @@ const passport = require("passport");
 const validateReviewInput = require("../../validation/review");
 const Review = require("../../models/Review");
 
+// Get a drinks reviews
+router.get("/drink/:drinkId", (req, res) => {
+  Review.find({ drinkId: req.params.drinkId })
+    .then((reviews) => res.json(reviews))
+    .catch((err) => res.status(400).json(err));
+});
 
 // GET a user's Reviews
 router.get("/author/:user_id", (req, res) => {

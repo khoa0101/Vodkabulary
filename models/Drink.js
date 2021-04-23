@@ -9,6 +9,7 @@ const DrinkSchema = new Schema({
   title: {
     type: String,
     required: true,
+    unique: true
   },
   category: {
     type: String,
@@ -20,6 +21,9 @@ const DrinkSchema = new Schema({
   directions: {
     type: String,
     required: true,
+  },
+  photo: {
+    type: String
   },
   date: {
     type: Date,

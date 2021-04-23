@@ -1,0 +1,19 @@
+.discover-main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-image: linear-gradient(to bottom,#1C5D99, rgb(0, 39, 65));
+}
+
+.discover-hero-container {
+    height: 100vh;
+    width: 100vw;
+}
+
+.discover-rows-container {
+    margin-top: -90px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
