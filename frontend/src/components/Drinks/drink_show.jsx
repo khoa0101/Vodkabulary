@@ -51,8 +51,8 @@ class DrinkShow extends React.Component {
                 </div>
                 <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
                 <div className="review-button"><Link to={`/review/drink/${drink._id}`}>Leave a review!</Link></div>
+             {(this.props.currentUser.id === this.props.drink.user._id) && <Link to={`/drink/${drink._id}/edit`} className="edit-drink">Edit Drink</Link>}
             </div>
-             {(this.props.currentUser.id === this.props.drink.user._id) && <Link to={`/drink/${drink._id}/edit`}>Edit Drink</Link>}
          </div>
         )
     }

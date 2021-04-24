@@ -77,4 +77,19 @@
             }
         }
     }
+
+}
+.edit-drink{
+    margin: 10px auto 0;
+    display: inline-block;
+    font-family: 'Monoton', cursive;
+    font-size: 14px;
+    border: solid white;
+    border-radius: 100px;
+    padding: 5px 15px;
+    &:hover, &:active{
+        color: black;
+        background-color: white;
+        transform: scale(1.1);
+    }
 }
