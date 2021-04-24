@@ -24,4 +24,5 @@ Have you ever had no idea of what to sort of drink to enjoy on a Friday night? V
 
 * NodeJS
 * Axios
+* ReactJS
 * Hosted on Heroku
