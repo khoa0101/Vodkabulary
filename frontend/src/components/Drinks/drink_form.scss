@@ -89,4 +89,21 @@
       transform: scale(1.2);
     }
   }
+
+  .del-drink {
+    margin: 10px auto 0;
+    display: inline-block;
+    font-family: 'Monoton', cursive;
+    font-size: 14px;
+    border: solid white;
+    border-radius: 100px;
+    padding: 5px 15px;
+    transition: ease 0.9s;
+    &:hover, &:active{
+      background-color: red;
+      color: white;
+      transform: scale(1.1);
+    }
+  }
+
 }
