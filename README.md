@@ -3,7 +3,7 @@
 Vodkabulary is a website that allows users to create, edit , share, rate and favorite the wide variety of drink combinations posted on the site. 
 
 ### Background:
-Have you ever had no idea of what to sort of drink to enjoy on a Friday night? Vodcabulary is just one click away. The site displays popular drinks rated and reviews by current users that you can browse and create all in the comfort of your home. With instructions, preparationn time and ingredients listed, you can be sure to be prepared for any guests at any time. 
+Have you ever had no idea of what to sort of drink to enjoy on a Friday night? Vodkabulary is just one click away. The site displays popular drinks rated and reviews by current users that you can browse and create all in the comfort of your home. With instructions, preparationn time and ingredients listed, you can be sure to be prepared for any guests at any time. 
 
 ### MVPs:
 
