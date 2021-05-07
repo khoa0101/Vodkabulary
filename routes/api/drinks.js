@@ -22,7 +22,20 @@ router.get(
       category: { $regex: req.query.term, $options: "i" },
     });
 
-    res.json([...titleResults, ...ingredientsResults, ...categoryResults]);
+    const results = [
+      ...titleResults,
+      ...ingredientsResults,
+      ...categoryResults,
+    ];
+
+    const resultMap = {};
+    
+    results.forEach(drink => {
+      const drinkId = drink._id;
+      resultMap[drinkId] = drink;
+    });
+
+    res.json(Object.values(resultMap));
   }
 );
 
