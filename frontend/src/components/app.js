@@ -13,6 +13,7 @@ import DrinkShowContainer from './Drinks/drink_show_container'
 import ReviewFormContainer from './Review/review_form_container';
 import PageNotFound from "./error/error";
 import EditFormContainer from './Drinks/edit_drink_form_container';
+import SearchResults from './search/SearchResults';
 
 const App = () => (
   <div>
@@ -22,6 +23,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/discover" component={DiscoverContainer} /> 
+      <ProtectedRoute exact path="/results" component={SearchResults} /> 
       <ProtectedRoute exact path="/createDrink" component={DrinkCreateContainer}/>
       <ProtectedRoute exact path="/drink/:id" component={DrinkShowContainer}/>
       <ProtectedRoute exact path="/review/drink/:id" component={ReviewFormContainer}/>

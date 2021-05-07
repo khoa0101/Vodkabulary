@@ -3,36 +3,78 @@ const router = express.Router();
 const passport = require("passport");
 const validateDrinkInput = require("../../validation/drink");
 const Drink = require("../../models/Drink");
-const upload = require("../../services/image_upload");
 const aws = require("aws-sdk");
 const keys = require('../../config/keys')
 const uploadFile = require("../../services/image_upload");
 
+router.get(
+  "/search",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    // credit: https://kb.objectrocket.com/mongo-db/mongoose-partial-text-search-606
+    const titleResults = await Drink.find({
+      title: { $regex: req.query.term, $options: "i" },
+    });
+    const ingredientsResults = await Drink.find({
+      ingredients: { $regex: req.query.term, $options: "i" },
+    });
+    const categoryResults = await Drink.find({
+      category: { $regex: req.query.term, $options: "i" },
+    });
+
+    const results = [
+      ...titleResults,
+      ...ingredientsResults,
+      ...categoryResults,
+    ];
+
+    const resultMap = {};
+    
+    results.forEach(drink => {
+      const drinkId = drink._id;
+      resultMap[drinkId] = drink;
+    });
+
+    res.json(Object.values(resultMap));
+  }
+);
 
 // Get all drinks sorted by latest
-router.get("/", (req, res) => {
-  Drink.find()
-    .sort({ date: -1 })
-    .populate("user", "username")
-    .then((drinks) => res.json(drinks))
-    .catch((err) => res.status(400).json(err));
-});
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Drink.find()
+      .sort({ date: -1 })
+      .populate("user", "username")
+      .then((drinks) => res.json(drinks))
+      .catch((err) => res.status(400).json(err));
+  }
+);
 
 // GET a user's Drinks
-router.get("/user/:user_id", (req, res) => {
-  Drink.find({ user: req.params.user_id })
-    .populate("user", "username")
-    .then((drinks) => res.json(drinks))
-    .catch((err) => res.status(400).json(err));
-});
+router.get(
+  "/user/:user_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Drink.find({ user: req.params.user_id })
+      .populate("user", "username")
+      .then((drinks) => res.json(drinks))
+      .catch((err) => res.status(400).json(err));
+  }
+);
 
 // GET a Drink
-router.get("/:id", (req, res) => {
-  Drink.findById(req.params.id)
-    .populate("user", "username")
-    .then((drink) => res.json(drink))
-    .catch((err) => res.status(400).json(err));
-});
+router.get(
+  "/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Drink.findById(req.params.id)
+      .populate("user", "username")
+      .then((drink) => res.json(drink))
+      .catch((err) => res.status(400).json(err));
+  }
+);
 
 // Delete a Drink
 router.delete(
@@ -102,7 +144,6 @@ router.patch(
       .catch((err) => status(404).json({ error: err }));
   }
 );
-
 
 // Create a drink
 router.post(

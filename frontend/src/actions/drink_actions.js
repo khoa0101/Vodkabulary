@@ -78,3 +78,8 @@ export const updateDrink = (id, data) => dispatch => (
       dispatch(receiveErrors(err.response.data));
     })
 );
+
+export const searchDrinks = searchTerm => dispatch =>
+  drinkAPIUtil
+    .searchDrinks(searchTerm)
+    .then((drinks) => dispatch(receiveDrinks(drinks)));

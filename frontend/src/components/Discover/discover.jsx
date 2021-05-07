@@ -7,7 +7,9 @@ class Discover extends React.Component {
 
     componentDidMount() {
         const { fetchDrinks } = this.props;
-        fetchDrinks()
+        if (!this.props.avoidFetch){
+            fetchDrinks()
+        }
     }
 
     render() {
