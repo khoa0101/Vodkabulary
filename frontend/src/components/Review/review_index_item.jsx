@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 class ReviewIndexItem extends React.Component {
     starPower(){
@@ -38,6 +39,13 @@ class ReviewIndexItem extends React.Component {
                 </div>
             )
     }
+    editButton(){
+        return(
+            <Link to={`/review/drink/${this.props.drinkId}/edit/${this.props.review._id}`}>
+                edit
+            </Link>
+        )
+    }
 
     render() {
        
@@ -53,7 +61,8 @@ class ReviewIndexItem extends React.Component {
                     <div className='rev-body'>
                         <p>{this.props.review.body}</p>
                     </div>
-                    <div className="del-btn">{this.deleteButton()}</div>               
+                    <div className="del-btn">{this.deleteButton()}</div>       
+                    {this.editButton()}      
                 </div>
             </div>
         )

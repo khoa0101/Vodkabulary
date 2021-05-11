@@ -14,6 +14,7 @@ import ReviewFormContainer from './Review/review_form_container';
 import PageNotFound from "./error/error";
 import EditFormContainer from './Drinks/edit_drink_form_container';
 import SearchResults from './search/SearchResults';
+import EditReviewFormContainer from './Review/edit_review_form_container';
 
 const App = () => (
   <div>
@@ -27,6 +28,7 @@ const App = () => (
       <ProtectedRoute exact path="/createDrink" component={DrinkCreateContainer}/>
       <ProtectedRoute exact path="/drink/:id" component={DrinkShowContainer}/>
       <ProtectedRoute exact path="/review/drink/:id" component={ReviewFormContainer}/>
+      <ProtectedRoute exact path="/review/drink/:id/edit/:reviewId" component={EditReviewFormContainer}/>
       <ProtectedRoute exact path="/drink/:id/edit" component={EditFormContainer}/>
 
       <PageNotFound />

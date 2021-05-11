@@ -1,16 +1,23 @@
-import { RECEIVE_REVIEWS, RECEIVE_REVIEW, REMOVE_REVIEW } from '../actions/review_actions';
+import { RECEIVE_REVIEWS, RECEIVE_REVIEW, REMOVE_REVIEW, REPLACE_REVIEW } from '../actions/review_actions';
 
-const reviewsReducer = (state = {}, action) => {
+const reviewsReducer = (state = [], action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_REVIEWS:
             return action.reviews.data;
         case RECEIVE_REVIEW:
-            return Object.assign({}, state, {
-                [action.review.data.id]: action.review.data
-            });
+            return [...state, action.review.data]
+        case REPLACE_REVIEW:
+            const newState = state.map(review => {
+                if (review._id === action.review.data._id){
+                    return action.review.data
+                } else {
+                    return review
+                }
+            })
+            return newState;
         case REMOVE_REVIEW:
-            let nextState = Object.assign({}, state);
+            let nextState = Object.assign([], state);
             delete nextState[action.reviewId];
             return nextState;
         default:

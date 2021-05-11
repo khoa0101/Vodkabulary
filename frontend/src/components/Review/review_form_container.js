@@ -8,6 +8,12 @@ const mapStateToProps = (state, ownProps) => ({
   drink: state.entities.drinks.filter(
     (drink) => drink._id === ownProps.match.params.id
   )[0],
+  review: {
+    drinkId: ownProps.match.params.id,
+    author: state.session.user.id,
+    rating: "",
+    body: ""
+  }
 });
 
 const mapDispatchToProps = (dispatch,ownProps) => ({
