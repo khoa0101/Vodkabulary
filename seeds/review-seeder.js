@@ -193,6 +193,36 @@ function drinkSeeds(usersArr, drinksArr) {
       body: "Great if you want to impress a lady",
       rating: 4,
     }),
+    new Review({
+      author: randUserId(),
+      drinkId: randDrinkId(),
+      body: "Goes well with coffee",
+      rating: 4,
+    }),
+    new Review({
+      author: randUserId(),
+      drinkId: randDrinkId(),
+      body: "My mom loves this drink!",
+      rating: 5,
+    }),
+    new Review({
+      author: randUserId(),
+      drinkId: randDrinkId(),
+      body: "Could be better with a lemon zest",
+      rating: 3,
+    }),
+    new Review({
+      author: randUserId(),
+      drinkId: randDrinkId(),
+      body: "I like adding a banna peel to this drink",
+      rating: 3,
+    }),
+    new Review({
+      author: randUserId(),
+      drinkId: randDrinkId(),
+      body: "Drink this while listening to classic music",
+      rating: 4,
+    }),
   ];
 }
 
