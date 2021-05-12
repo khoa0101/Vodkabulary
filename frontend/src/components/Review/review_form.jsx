@@ -132,13 +132,11 @@ class ReviewForm extends React.Component {
           </label>
           <div className="buttons">
             <button className="submit-button">Submit Review</button>
-            <div className="rev-del"> 
               {this.props.formtype === "updateForm" && (
                 <button className="del-rev" onClick={this.handleDelete}>
                   Delete Review
                 </button>
               )}
-            </div>
           </div>
            
         </form>
