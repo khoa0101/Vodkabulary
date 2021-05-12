@@ -63,17 +63,23 @@ export const fetchUserDrinks = id => dispatch => (
     })
 );
 
-export const createDrink = data => dispatch => (
-  drinkAPIUtil.createDrink(data)
-    .then(drink => dispatch(receiveDrink(drink)))
+export const createDrink = (drink, redirect) => dispatch => (
+  drinkAPIUtil.createDrink(drink)
+    .then(drink => {
+      redirect();
+      dispatch(receiveDrink(drink));
+    })
     .catch(err => {
       dispatch(receiveErrors(err.response.data));
     })
 );
 
-export const updateDrink = (id, data) => dispatch => (
-  drinkAPIUtil.updateDrink(id, data)
-    .then(drink => dispatch(receiveDrink(drink)))
+export const updateDrink = (id, drink, redirect) => dispatch => (
+  drinkAPIUtil.updateDrink(id, drink)
+    .then(drink => {
+      redirect();
+      dispatch(receiveDrink(drink));
+    })
     .catch(err => {
       dispatch(receiveErrors(err.response.data));
     })

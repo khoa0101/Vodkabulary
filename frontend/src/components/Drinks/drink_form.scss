@@ -75,6 +75,7 @@
     padding-left: 70px;
   }
   .submit-button{
+    position: relative;
     margin: 10px auto 0;
     display: block;
     font-family: 'Monoton', cursive;
@@ -88,6 +89,31 @@
       color: black;
       transform: scale(1.2);
     }
+  }
+  // https://dev.to/dcodeyt/create-a-button-with-a-loading-spinner-in-html-css-1c0h
+  .button-loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-left: 16px solid white;
+    border-bottom: 16px solid transparent;
+    
+    animation: loading-animation 1s ease infinite;
+  }
+    @keyframes loading-animation {
+      from {
+          transform: translateX(5px);
+      }
+      to {
+          transform: translateX(130px);
+          opacity: 25%;
+      }
   }
 
   .del-drink {
@@ -106,4 +132,8 @@
     }
   }
 
+}
+
+.disabled {
+  color: rgb(152, 152, 152);
 }
