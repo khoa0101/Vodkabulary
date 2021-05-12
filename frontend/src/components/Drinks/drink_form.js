@@ -172,19 +172,21 @@ class DrinkForm extends React.Component {
               onChange={this.handleFile}
             />
           )}
-          {this.props.formType === "edit" && (
-            <button className="del-drink" onClick={this.handleDelete}>
-              Delete Drink
-            </button>
-          )}
-          <SubmitBtn
-            disabled={
-              !this.state.photoFile && this.props.formType === "create" 
-            }
-            unclick={!!Object.keys(this.props.errors).length}
-            >
-            Submit Drink
-          </SubmitBtn>
+          <div className="buttons">
+            {this.props.formType === "edit" && (
+              <button className="del-drink" onClick={this.handleDelete}>
+                Delete Drink
+              </button>
+            )}
+            <SubmitBtn
+              disabled={
+                !this.state.photoFile && this.props.formType === "create" 
+              }
+              unclick={!!Object.keys(this.props.errors).length}
+              >
+              Submit Drink
+            </SubmitBtn>
+          </div>
         </form>
       </div>
     );

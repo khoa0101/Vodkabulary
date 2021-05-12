@@ -1,6 +1,20 @@
 import { connect } from "react-redux";
 import DrinkForm from "./drink_form.js";
 import { fetchDrink, deleteDrink, updateDrink} from "../../actions/drink_actions";
+import React from "react";
+
+class EditDrink extends React.Component {
+  componentDidMount(){
+    this.props.fetchDrink(this.props.match.params.id);
+  }
+
+  render(){
+    if (!this.props.drinkPrefill) return null;
+    return (<div>
+      <DrinkForm {...this.props} />
+    </div>)
+  }
+}
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.user.id,
@@ -16,4 +30,4 @@ const mapDispatchToProps = (dispatch) => ({
   deleteDrink: (id) => dispatch(deleteDrink(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DrinkForm);
+export default connect(mapStateToProps, mapDispatchToProps)(EditDrink);

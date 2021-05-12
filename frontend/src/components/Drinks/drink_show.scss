@@ -1,24 +1,12 @@
-.Drink-Container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #1C5D99;
-    align-items: center;
-}
-
-.Drink-Name{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: #1C5D99;
-    font-size: 12px;
-}
+// .Drink-Container{
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     background-color: #1C5D99;
+//     align-items: center;
+// }
 
 .Drink-Pic{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
     background: linear-gradient(to bottom, rgba(28,93,153,1) 0%, #0e7e82 50%, rgba(0,39,65,1) 100%);
     padding: 20px 10%;
     div{
@@ -26,14 +14,24 @@
         div{
             margin: 0;
         }
+        h1{
+            display: block;
+            font-family: 'Monoton', cursive;
+            font-size: 50px;
+        }
         h2{
             display: block;
             font-family: 'Monoton', cursive;
-            font-size: 20px;
+            font-size: 30px;
+        }
+        h3{
+            font-size: 16px;
         }
         img{
-            height: 250px;
-            width: 250px;
+            height: 500px;
+            min-height: 250px;
+            width: 500px;
+            min-width: 250px;
             border: solid 5px white;
             border-radius: 10px;
         }
@@ -42,12 +40,33 @@
             list-style-type: disc;
         }    
     }
-    .ingredients{
-        width: 400px;
+    .Drink-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        .in-di{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            .ingredients{
+                width: 500px;
+                height: 200px;
+                padding-bottom: 20px;
+                margin: 0 10px;
+                overflow-y: auto;
+            }
+            .directions{
+                width: 500px;
+                height: 200px;
+                padding-bottom: 20px;
+                margin-left: 10px;
+                overflow-y: auto;
+            }
+        }
     }
-    .directions{
-        width: 400px;
-    }
+
     .review-button{
         display: flex;
         justify-content: center;
@@ -59,7 +78,7 @@
         font-size: 16px;
         border: solid white;
         border-radius: 100px;
-        padding: 5px 15px;
+        padding: 5px 5px;
         transition: ease 0.9s;
         &:hover, &:active{
           background-color: white;
@@ -68,28 +87,75 @@
         }
     }
 
+    .review-header{
+        margin-top: 20px;
+        margin-left: 20px;
+        display: block;
+        font-family: 'Monoton', cursive;
+        font-size: 30px;
+    }
+
+    .reviews{
+        margin: 0;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: auto;
+    }
+
+    .no-reviews{
+        box-sizing: border-box;
+        width: 100%;
+        height: 20vh;
+        text-align: center;
+        padding: 35px 0;
+        h3 {
+            font-size: 30px;
+        }
+    }
+
     .rev-box{
-        padding: 10px;
+        position: relative;
+        width: 300px;
+        padding: 20px;
         .author-name-rate{
             font-size: 12px;
             span{
                 color: goldenrod;
             }
         }
+
+        a{
+            position: absolute;
+            right: 20px;
+            border: 3px solid white;
+            border-radius: 100px;
+            padding: 2px;
+            font-size: 10px;
+            transition: ease 0.9s;
+            &:hover{
+                background-color: white;
+                color: black;
+            }
+        }
     }
 
 }
 .edit-drink{
+    width: 200px;
     margin: 10px auto 0;
-    display: inline-block;
+    display: block;
     font-family: 'Monoton', cursive;
-    font-size: 14px;
+    text-align: center;
+    font-size: 16px;
     border: solid white;
     border-radius: 100px;
-    padding: 5px 15px;
+    padding: 5px 5px;
+    transition: ease 0.9s;
     &:hover, &:active{
-        color: black;
         background-color: white;
-        transform: scale(1.1);
+        color: black;
+        transform: scale(1.2);
     }
 }

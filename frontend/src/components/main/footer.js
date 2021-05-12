@@ -32,10 +32,35 @@ class Footer extends React.Component {
         <div className="credits">
           <ul>
             <li>
-              Built by <a href="https://github.com/chrisaugust29" target="_blank" rel="noreferrer" >Chris</a>,{" "}
-              <a href="https://github.com/Kevinsebmat" target="_blank" rel="noreferrer" >Kevin</a>,{" "}
-              <a href="https://github.com/Cris415" target="_blank" rel="noreferrer" >Cristian</a>,{" "}
-              <a href="https://github.com/khoa0101" target="_blank" rel="noreferrer" >and Khoa</a>
+              Built by {" "}<br/>
+              <a href="https://github.com/chrisaugust29" target="_blank" rel="noreferrer">Chris: </a>
+              <div>
+                <a href="https://github.com/chrisaugust29" target="_blank" rel="noreferrer"> 
+                <img src="GitHub-Mark-Light-64px.png" alt="github-img" /></a>
+                <a href="https://www.linkedin.com/in/christopher-low-99a557a3/" target="_blank" rel="noreferrer" >
+                <img src="linkedin.png" alt="linked-img" /></a> 
+              </div>
+              <a href="https://github.com/Kevinsebmat" target="_blank" rel="noreferrer" >, Kevin: </a>
+              <div>
+                <a href="https://github.com/Kevinsebmat" target="_blank" rel="noreferrer" >
+                <img src="GitHub-Mark-Light-64px.png" alt="github-img" /></a>
+                <a href="https://www.linkedin.com/in/kevin-mathews-b36a67193/" target="_blank" rel="noreferrer" >
+              <img src="linkedin.png" alt="linked-img" /></a> 
+              </div>
+              <a href="https://github.com/Cris415" target="_blank" rel="noreferrer" >, Cristian: </a>
+              <div>
+                <a href="https://github.com/Cris415" target="_blank" rel="noreferrer" >
+                <img src="GitHub-Mark-Light-64px.png" alt="github-img" /></a>
+                <a href="https://www.linkedin.com/in/cristian-reynoso-31b4168b/" target="_blank" rel="noreferrer" >
+                <img src="linkedin.png" alt="linked-img" /></a> 
+              </div>
+              <a href="https://github.com/khoa0101" target="_blank" rel="noreferrer" >, and Khoa:</a>
+              <div>
+                <a href="https://github.com/khoa0101" target="_blank" rel="noreferrer" > 
+                <img src="GitHub-Mark-Light-64px.png" alt="github-img" /></a>
+                <a href="https://www.linkedin.com/in/khoa-nguyen-814465133/" target="_blank" rel="noreferrer" >
+                <img src="linkedin.png" alt="linked-img" /></a> 
+              </div>
             </li>
             <li>
               Icons made by{" "}
@@ -45,7 +70,7 @@ class Footer extends React.Component {
             </li>
           </ul>
           <a href="https://github.com/khoa0101/Vodkabulary" target="_blank" rel="noreferrer">
-            <img src="GitHub-Mark-Light-64px.png" alt="github-img" />
+            <img className="main-git" src="GitHub-Mark-Light-64px.png" alt="github-img" />
           </a>
         </div>
       </footer>

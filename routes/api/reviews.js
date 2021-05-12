@@ -58,6 +58,7 @@ router.patch(
         { _id: req.params.id },
         { $set: req.body},
         { returnOriginal: false, useFindAndModify: false })
+        .populate("author", "username")
         .then(review =>res.status(200).send(review))
         .catch(err => status(404).json({ error: err }))
     }
@@ -81,7 +82,13 @@ router.post(
       rating: req.body.rating,
     });
 
-    newReview.save().then((review) => res.json(review));
+    newReview.save().then((review) => {
+      // finding the review to return a review with populated user info
+      Review.find({ _id: review._id })
+        .populate("author", "username")
+        .then((review) => {
+          res.json(review[0])});
+    });
   }
 );
 
