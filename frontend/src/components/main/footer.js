@@ -32,10 +32,23 @@ class Footer extends React.Component {
         <div className="credits">
           <ul>
             <li>
-              Built by <a href="https://github.com/chrisaugust29" target="_blank" rel="noreferrer" >Chris</a>,{" "}
-              <a href="https://github.com/Kevinsebmat" target="_blank" rel="noreferrer" >Kevin</a>,{" "}
-              <a href="https://github.com/Cris415" target="_blank" rel="noreferrer" >Cristian</a>,{" "}
-              <a href="https://github.com/khoa0101" target="_blank" rel="noreferrer" >and Khoa</a>
+              Built by {" "} <br />
+              <a href="https://github.com/chrisaugust29" target="_blank" rel="noreferrer" >Chris
+               <img src="GitHub-Mark-Light-64px.png" alt="github-img" /></a> 
+               <a href="https://www.linkedin.com/in/christopher-low-99a557a3/" target="_blank" rel="noreferrer" >
+               <img src="linkedin.png" alt="linked-img" />,{" "}</a> 
+              <a href="https://github.com/Kevinsebmat" target="_blank" rel="noreferrer" >Kevin
+               <img src="GitHub-Mark-Light-64px.png" alt="github-img" />,{" "}</a>
+               <a href="https://www.linkedin.com/in/kevin-mathews-b36a67193/" target="_blank" rel="noreferrer" >
+               <img src="linkedin.png" alt="linked-img" />,{" "}</a> 
+              <a href="https://github.com/Cris415" target="_blank" rel="noreferrer" >Cristian
+               <img src="GitHub-Mark-Light-64px.png" alt="github-img" />,{" "}</a>
+               <a href="https://www.linkedin.com/in/cristian-reynoso-31b4168b/" target="_blank" rel="noreferrer" >
+               <img src="linkedin.png" alt="linked-img" />,{" "}</a> 
+              <a href="https://github.com/khoa0101" target="_blank" rel="noreferrer" >and Khoa
+               <img src="GitHub-Mark-Light-64px.png" alt="github-img" /></a>
+               <a href="https://www.linkedin.com/in/khoa-nguyen-814465133/" target="_blank" rel="noreferrer" >
+               <img src="linkedin.png" alt="linked-img" /></a> 
             </li>
             <li>
               Icons made by{" "}
