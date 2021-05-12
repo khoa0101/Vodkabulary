@@ -5,7 +5,7 @@ function SubmitBtn(props){
 
   return(
     <button 
-        // disabled={clicked} 
+        disabled={clicked} 
         disabled={props.disabled}
         onClick={() => setClicked(!clicked)} 
         className={clicked ? 'submit-button button-loading' : 'submit-button'}>
