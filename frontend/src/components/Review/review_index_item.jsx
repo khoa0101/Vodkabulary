@@ -29,20 +29,21 @@ class ReviewIndexItem extends React.Component {
     //     this.props.fetchUsers()
     // }
 
-    deleteButton() {
-        // if (this.props.currentUser === this.props.author.id)
-            return (
-                <div className='rev-btn-place'>
-                    <div className="rev-delete-btn"
-                        onClick={this.handleDelete()}>        
-                    </ div>
-                </div>
-            )
-    }
+    // deleteButton() {
+    //     // if (this.props.currentUser === this.props.author.id)
+    //         return (
+    //             <div className='rev-btn-place'>
+    //                 <button className="rev-delete-btn"
+    //                     onClick={this.handleDelete()}>
+    //                         Delete      
+    //                 </button>
+    //             </div>
+    //         )
+    // }
     editButton(){
         return(
             <Link to={`/review/drink/${this.props.drinkId}/edit/${this.props.review._id}`}>
-                edit
+                Edit
             </Link>
         )
     }
@@ -62,7 +63,7 @@ class ReviewIndexItem extends React.Component {
                         <p>{this.props.review.body}</p>
                     </div>
                          
-                    <div className="del-btn">{this.deleteButton()}</div>  
+                    {/* <div className="del-btn">{this.deleteButton()}</div>   */}
                     {console.log(this.props.review.author._id, this.props.currentUser)}     
                   {this.props.currentUser === this.props.review.author._id && this.editButton()}     
                 </div>

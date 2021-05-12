@@ -74,61 +74,62 @@
     margin: 20px auto;
     padding-left: 70px;
   }
-  .submit-button{
-    position: relative;
-    margin: 10px auto 0;
-    display: block;
-    font-family: 'Monoton', cursive;
-    font-size: 16px;
-    border: solid white;
-    border-radius: 100px;
-    padding: 5px 15px;
-    transition: ease 0.9s;
-    &:hover, &:active{
-      background-color: white;
-      color: black;
-      transform: scale(1.2);
+  .buttons{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    .submit-button{
+      font-family: 'Monoton', cursive;
+      font-size: 16px;
+      border: solid white;
+      border-radius: 100px;
+      margin: 0;
+      padding: 5px 15px;
+      transition: ease 0.9s;
+      &:hover, &:active{
+        background-color: white;
+        color: black;
+        transform: scale(1.2);
+      }
     }
-  }
-  // https://dev.to/dcodeyt/create-a-button-with-a-loading-spinner-in-html-css-1c0h
-  .button-loading::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 0;
-    height: 0;
-    border-top: 16px solid transparent;
-    border-left: 16px solid white;
-    border-bottom: 16px solid transparent;
-    
-    animation: loading-animation 1s ease infinite;
-  }
-    @keyframes loading-animation {
-      from {
-          transform: translateX(5px);
+    // https://dev.to/dcodeyt/create-a-button-with-a-loading-spinner-in-html-css-1c0h
+    .button-loading::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-top: 16px solid transparent;
+      border-left: 16px solid white;
+      border-bottom: 16px solid transparent;
+      
+      animation: loading-animation 1s ease infinite;
+    }
+      @keyframes loading-animation {
+        from {
+            transform: translateX(5px);
+        }
+        to {
+            transform: translateX(130px);
+            opacity: 25%;
+        }
+    }
+  
+    .del-drink {
+      font-family: 'Monoton', cursive;
+      font-size: 14px;
+      border: solid white;
+      border-radius: 100px;
+      padding: 5px 15px;
+      transition: ease 0.9s;
+      &:hover, &:active{
+        background-color: red;
+        color: white;
+        transform: scale(1.1);
       }
-      to {
-          transform: translateX(130px);
-          opacity: 25%;
-      }
-  }
-
-  .del-drink {
-    margin: 10px auto 0;
-    display: inline-block;
-    font-family: 'Monoton', cursive;
-    font-size: 14px;
-    border: solid white;
-    border-radius: 100px;
-    padding: 5px 15px;
-    transition: ease 0.9s;
-    &:hover, &:active{
-      background-color: red;
-      color: white;
-      transform: scale(1.1);
     }
   }
 

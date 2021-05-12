@@ -10,22 +10,18 @@ class ReviewForm extends React.Component {
       this.props.review.author = this.props.review.author._id
     }
     this.state = this.props.review;
+    console.log(this.state);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.submitR = this.submitR.bind(this);
   }
 
   componentDidMount() {
     if (this.props.formtype === "updateForm") {
-      // this.props.fetchReview(this.props.match.params.reviewId).then(review => {
-      //   this.props.fetchDrink();
-      // })
-      this.props.fetchReview(this.props.match.params.reviewId)
-      this.props.fetchDrink();
- 
+      this.props.fetchReview(this.props.match.params.reviewId)      
+      this.props.fetchDrink(); 
     } else {
       this.props.fetchDrink(this.props.match.params.id);
     }
-    
   }
 
   loginMust() {
@@ -68,7 +64,9 @@ class ReviewForm extends React.Component {
 
   render() {
     if (this.props.drink === undefined ) return null;
-    if (this.props.review === undefined && this.props.formtype === 'updateForm') return null;
+    // console.log(this.props.review);
+    // console.log(this.state);
+    if (this.state === undefined && this.props.formtype === 'updateForm') return null;
     return (
       <div className="form-box">
         <h1 className="rtitle">Write a Review for {this.props.drink.title}!</h1>
@@ -81,6 +79,7 @@ class ReviewForm extends React.Component {
                 id="star5"
                 name="rate"
                 value="5"
+                defaultChecked={this.props.review.rating === "5"}
                 onClick={this.update("rating")}
               />
               <label htmlFor="star5" title="text" />
@@ -89,6 +88,7 @@ class ReviewForm extends React.Component {
                 id="star4"
                 name="rate"
                 value="4"
+                defaultChecked={this.props.review.rating === "4"} 
                 onClick={this.update("rating")}
               />
               <label htmlFor="star4" title="text" />
@@ -97,6 +97,7 @@ class ReviewForm extends React.Component {
                 id="star3"
                 name="rate"
                 value="3"
+                defaultChecked={this.props.review.rating === "3"}
                 onClick={this.update("rating")}
               />
               <label htmlFor="star3" title="text" />
@@ -105,6 +106,7 @@ class ReviewForm extends React.Component {
                 id="star2"
                 name="rate"
                 value="2"
+                defaultChecked={this.props.review.rating === "2"}
                 onClick={this.update("rating")}
               />
               <label htmlFor="star2" title="text" />
@@ -113,6 +115,7 @@ class ReviewForm extends React.Component {
                 id="star1"
                 name="rate"
                 value="1"
+                defaultChecked={this.props.review.rating === "1"}
                 onClick={this.update("rating")}
               />
               <label htmlFor="star1" title="text" />
