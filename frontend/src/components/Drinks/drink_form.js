@@ -181,9 +181,10 @@ class DrinkForm extends React.Component {
               Delete Drink
             </button>
           )}
-          <button className="submit-button">Submit Drink</button>
+
+          <SubmitBtn disabled={!this.state.photoFile}>Submit Drink</SubmitBtn>
+          {/* <button className="submit-button">Submit Drink</button> */}
         </form>
-        <SubmitBtn>hell world</SubmitBtn>
       </div>
     );
   }

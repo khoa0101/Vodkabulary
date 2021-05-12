@@ -4,8 +4,12 @@ function SubmitBtn(props){
   const [clicked, setClicked] = useState(false);
 
   return(
-    <button disabled={clicked} onClick={setClicked(!clicked)}>
-      {this.props.children}
+    <button 
+        // disabled={clicked} 
+        disabled={props.disabled}
+        onClick={() => setClicked(!clicked)} 
+        className={clicked ? 'submit-button button-loading' : 'submit-button'}>
+      {props.children}
     </button>
   )
 
