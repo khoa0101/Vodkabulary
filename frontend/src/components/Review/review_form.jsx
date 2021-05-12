@@ -19,6 +19,7 @@ class ReviewForm extends React.Component {
   }
   
   componentDidMount() {
+    window.scrollTo(0, 0);
     if (this.props.formtype !== "updateForm") {
       this.props.fetchDrink();
     }
@@ -51,7 +52,6 @@ class ReviewForm extends React.Component {
     this.props.deleteReview(this.props.match.params.reviewId)
     .then(this.submitR())
   }
-
 
   renderErrors() {
     return (

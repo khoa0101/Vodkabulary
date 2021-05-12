@@ -58,7 +58,6 @@ export const fetchUserDrinks = id => dispatch => (
   drinkAPIUtil.getUserDrinks(id)
     .then(drinks => dispatch(receiveUserDrinks(drinks)))
     .catch(err => {
-      console.log(err)
       dispatch(receiveErrors(err.response.data));
     })
 );
