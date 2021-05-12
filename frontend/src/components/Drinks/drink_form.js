@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom';
+import SubmitBtn from './SubmitBtn';
 import './drink_form.scss'
 
 class DrinkForm extends React.Component {
@@ -182,6 +183,7 @@ class DrinkForm extends React.Component {
           )}
           <button className="submit-button">Submit Drink</button>
         </form>
+        <SubmitBtn>hell world</SubmitBtn>
       </div>
     );
   }
