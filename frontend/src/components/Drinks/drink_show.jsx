@@ -27,28 +27,29 @@ class DrinkShow extends React.Component {
              const {drink} = this.props;
         return(
         <div key={drink._id} className="Drink-Container">
-            <div className='Drink-Name'>
-            {/* <Link to={`/users/${drink.user}`}> */}
-            <h2>Made by {drink.user.username}</h2>
-            {/* </Link> */}
-            </div>    
-             <div className='Drink-Pic'>
-                <div className="title">
-                    <h2>{drink.title}</h2>
-                    <img src={`${drink.photo}`} alt="" />
+            <div className='Drink-Pic'>
+                <div className="Drink-info">
+                    <div className="title">
+                        <h1>{drink.title}</h1>
+                        <h3>Recipe by {drink.user.username}</h3>
+                        <img src={`${drink.photo}`} alt="" />
+                    </div>
+                    <div className="in-di">
+                        <div className="ingredients">
+                            <h2>Ingredients</h2>
+                            <ul>
+                                {drink.ingredients.map((ingre, i) => 
+                                    <li key={i}>{ingre}</li>    
+                                )}
+                            </ul>
+                        </div>
+                        <div className="directions">
+                            <h2>Directions</h2>
+                            <p>{drink.directions}</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="ingredients">
-                    <h2>Ingredients</h2>
-                    <ul>
-                        {drink.ingredients.map((ingre, i) => 
-                            <li key={i}>{ingre}</li>    
-                        )}
-                    </ul>
-                </div>
-                <div className="directions">
-                    <h2>Directions</h2>
-                    <p>{drink.directions}</p>
-                </div>
+                <h2 className="review-header">Reviews</h2>
                 <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
                 <div className="review-button"><Link to={`/review/drink/${drink._id}`}>Leave a review!</Link></div>
              {(this.props.currentUser.id === this.props.drink.user._id) && <Link to={`/drink/${drink._id}/edit`} className="edit-drink">Edit Drink</Link>}

@@ -10,8 +10,7 @@ class ReviewIndex extends React.Component {
         let reviews=this.props.reviews
         if(this.props.reviews.length === 0) return null;
         return (
-            <div className="reviews">  
-                <h2>Reviews</h2>
+            <div className="reviews"> 
                 {reviews.map((r, idx) => {
                         return (
                             <ReviewIndexItem key={idx} review={r} drinkId={this.props.drinkId} currentUser={this.props.currentUser} deleteReview={this.props.deleteReview}/>
