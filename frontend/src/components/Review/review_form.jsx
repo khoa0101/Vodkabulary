@@ -5,27 +5,22 @@ import "./review_form.scss";
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
+
     if (this.props.review && this.props.formtype === 'updateForm') {
       this.props.review.rating = this.props.review.rating.toString();
       this.props.review.author = this.props.review.author._id
     }
+    
     this.state = this.props.review;
-    console.log(this.state);
+    
     this.handleSubmit = this.handleSubmit.bind(this);
     this.submitR = this.submitR.bind(this);
   }
-
+  
   componentDidMount() {
-    if (this.props.formtype === "updateForm") {
-      this.props.fetchReview(this.props.match.params.reviewId)      
-      this.props.fetchDrink(); 
-    } else {
-      this.props.fetchDrink(this.props.match.params.id);
+    if (this.props.formtype !== "updateForm") {
+      this.props.fetchDrink();
     }
-  }
-
-  loginMust() {
-    alert("Log In User before submitting Review");
   }
 
   submitR() {
@@ -64,9 +59,6 @@ class ReviewForm extends React.Component {
 
   render() {
     if (this.props.drink === undefined ) return null;
-    // console.log(this.props.review);
-    // console.log(this.state);
-    if (this.state === undefined && this.props.formtype === 'updateForm') return null;
     return (
       <div className="form-box">
         <h1 className="rtitle">Write a Review for {this.props.drink.title}!</h1>
