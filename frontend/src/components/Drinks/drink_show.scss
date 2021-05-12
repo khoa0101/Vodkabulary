@@ -104,6 +104,17 @@
         overflow-x: auto;
     }
 
+    .no-reviews{
+        box-sizing: border-box;
+        width: 100%;
+        height: 20vh;
+        text-align: center;
+        padding: 35px 0;
+        h3 {
+            font-size: 30px;
+        }
+    }
+
     .rev-box{
         position: relative;
         width: 300px;

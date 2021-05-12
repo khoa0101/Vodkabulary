@@ -8,7 +8,11 @@ class ReviewIndex extends React.Component {
     render() {
 
         let reviews=this.props.reviews
-        if(this.props.reviews.length === 0) return null;
+        if(this.props.reviews.length === 0) return (
+            <div className="no-reviews">
+                <h3>Be the first to leave a review!</h3>
+            </div>
+        );
         return (
             <div className="reviews"> 
                 {reviews.map((r, idx) => {
