@@ -46,18 +46,6 @@ class ReviewForm extends React.Component {
     this.submitR();
   }
 
-  // deleteButton() {
-  //   if (this.props.formtype === "updateForm")
-  //   return (
-  //     <div className='rev-btn-place'>
-  //         <button className="rev-delete-btn"
-  //             onClick={this.handleDelete()}>
-  //                 Delete      
-  //         </button>
-  //     </div>
-  //   )
-  // }
-
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteReview(this.props.match.params.reviewId)
@@ -142,13 +130,15 @@ class ReviewForm extends React.Component {
               placeholder="Please leave a review for this drink!"
             />
           </label>
-          <button className="submit-button">Submit Review</button>
-          <div className="rev-del"> 
-            {this.props.formtype === "updateForm" && (
-              <button className="del-rev" onClick={this.handleDelete}>
-                Delete Review
-              </button>
-            )}
+          <div className="buttons">
+            <button className="submit-button">Submit Review</button>
+            <div className="rev-del"> 
+              {this.props.formtype === "updateForm" && (
+                <button className="del-rev" onClick={this.handleDelete}>
+                  Delete Review
+                </button>
+              )}
+            </div>
           </div>
            
         </form>
