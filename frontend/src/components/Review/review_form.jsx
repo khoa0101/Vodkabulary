@@ -19,6 +19,7 @@ class ReviewForm extends React.Component {
   }
   
   componentDidMount() {
+    window.scrollTo(0, 0);
     if (this.props.formtype !== "updateForm") {
       this.props.fetchDrink();
     }
@@ -46,24 +47,11 @@ class ReviewForm extends React.Component {
     this.submitR();
   }
 
-  // deleteButton() {
-  //   if (this.props.formtype === "updateForm")
-  //   return (
-  //     <div className='rev-btn-place'>
-  //         <button className="rev-delete-btn"
-  //             onClick={this.handleDelete()}>
-  //                 Delete      
-  //         </button>
-  //     </div>
-  //   )
-  // }
-
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteReview(this.props.match.params.reviewId)
     .then(this.submitR())
   }
-
 
   renderErrors() {
     return (
