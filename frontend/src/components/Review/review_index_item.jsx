@@ -51,7 +51,7 @@ class ReviewIndexItem extends React.Component {
        
         let { username } = this.props.review.author
 
-        return (
+        return(
             <div>
                 <div className='rev-box'>
                     <div className='author-name-rate'>
@@ -61,13 +61,15 @@ class ReviewIndexItem extends React.Component {
                     <div className='rev-body'>
                         <p>{this.props.review.body}</p>
                     </div>
+                         
                     <div className="del-btn">{this.deleteButton()}</div>       
-                    {this.editButton()}      
+                  {this.props.currentUser.id === this.props.author && this.editButton()}     
                 </div>
             </div>
         )
     }
 
 }
+
 
 export default ReviewIndexItem

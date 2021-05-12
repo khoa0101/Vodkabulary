@@ -7,3 +7,4 @@ module.exports = {
   AWS_BUCKET: process.env.AWS_BUCKET,
 };
 
+
