@@ -62,8 +62,9 @@ class ReviewIndexItem extends React.Component {
                         <p>{this.props.review.body}</p>
                     </div>
                          
-                    <div className="del-btn">{this.deleteButton()}</div>       
-                  {this.props.currentUser.id === this.props.author && this.editButton()}     
+                    <div className="del-btn">{this.deleteButton()}</div>  
+                    {console.log(this.props.review.author._id, this.props.currentUser)}     
+                  {this.props.currentUser === this.props.review.author._id && this.editButton()}     
                 </div>
             </div>
         )
