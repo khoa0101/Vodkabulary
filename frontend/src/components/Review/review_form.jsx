@@ -13,6 +13,7 @@ class ReviewForm extends React.Component {
     console.log(this.state);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.submitR = this.submitR.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -49,6 +50,25 @@ class ReviewForm extends React.Component {
 
     this.submitR();
   }
+
+  // deleteButton() {
+  //   if (this.props.formtype === "updateForm")
+  //   return (
+  //     <div className='rev-btn-place'>
+  //         <button className="rev-delete-btn"
+  //             onClick={this.handleDelete()}>
+  //                 Delete      
+  //         </button>
+  //     </div>
+  //   )
+  // }
+
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteReview(this.props.match.params.reviewId)
+    .then(this.submitR())
+  }
+
 
   renderErrors() {
     return (
@@ -121,6 +141,7 @@ class ReviewForm extends React.Component {
               <label htmlFor="star1" title="text" />
             </div>
           </label>
+          
           <label>
             Review
             <textarea
@@ -130,7 +151,16 @@ class ReviewForm extends React.Component {
             />
           </label>
           <button className="submit-button">Submit Review</button>
+          <div className="rev-del"> 
+            {this.props.formtype === "updateForm" && (
+              <button className="del-rev" onClick={this.handleDelete}>
+                Delete Review
+              </button>
+            )}
+          </div>
+           
         </form>
+
       </div>
     );
   }
