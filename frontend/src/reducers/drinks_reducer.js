@@ -14,7 +14,8 @@ import { RECEIVE_DRINKS, RECEIVE_USER_DRINKS, RECEIVE_DRINK, DELETE_DRINK } from
         let newState = [...state]
         return newState.filter(drink => drink._id !== action.id)
       case RECEIVE_DRINK:
-          return [...state, action.drink.data]
+          let filteredState = state.filter(drink => drink._id !== action.drink.data._id);
+          return [...filteredState, action.drink.data];
       default:
         return state;
     }

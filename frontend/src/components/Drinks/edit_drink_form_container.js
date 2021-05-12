@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  processForm: (id, drink) => dispatch(updateDrink(id, drink)),
+  processForm: (id, drink, redirect) => dispatch(updateDrink(id, drink, redirect)),
   fetchDrink: (id) => dispatch(fetchDrink(id)),
   deleteDrink: (id) => dispatch(deleteDrink(id)),
 });

@@ -68,13 +68,9 @@ class DrinkForm extends React.Component {
         category: this.state.category,
         author: this.props.currentUser,
       };
-      this.props.processForm(this.state._id, editedDrink).then(() => {
-        this.submitR();
-      });
+      this.props.processForm(this.state._id, editedDrink, this.submitR);
     } else {
-      this.props.processForm(formData).then(() => {
-        this.submitR();
-      });
+      this.props.processForm(formData, this.submitR);
     }
   }
 
@@ -181,9 +177,14 @@ class DrinkForm extends React.Component {
               Delete Drink
             </button>
           )}
-
-          <SubmitBtn disabled={!this.state.photoFile}>Submit Drink</SubmitBtn>
-          {/* <button className="submit-button">Submit Drink</button> */}
+          <SubmitBtn
+            disabled={
+              !this.state.photoFile && this.props.formType === "create" 
+            }
+            unclick={!!Object.keys(this.props.errors).length}
+            >
+            Submit Drink
+          </SubmitBtn>
         </form>
       </div>
     );

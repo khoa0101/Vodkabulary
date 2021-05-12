@@ -1,17 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 
-function SubmitBtn(props){
-  const [clicked, setClicked] = useState(false);
+class SubmitBtn extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {clicked: false};
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  return(
-    <button 
-        disabled={clicked} 
-        disabled={props.disabled}
-        onClick={() => setClicked(!clicked)} 
-        className={clicked ? 'submit-button button-loading' : 'submit-button'}>
-      {props.children}
-    </button>
-  )
+  componentDidUpdate(prevProps, prevState){
+    if ((prevProps.unclick !== this.props.unclick) && this.state.clicked === true){
+      if(this.props.unclick){
+        this.setState({clicked: false});
+      }
+    }
+  }
+
+  handleClick(){
+    if(!this.props.unclick){
+      this.setState({ clicked: true });
+    }
+  }
+    render(){
+      return (
+        <button
+          disabled={this.props.disabled}
+          onClick={this.handleClick}
+          className={this.state.clicked ? "submit-button button-loading" : "submit-button"}
+        >
+          {this.props.children}
+        </button>
+      );
+    }
 
 }
 

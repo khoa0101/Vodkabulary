@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
     action: drink => dispatch(createDrink(drink)),
-    processForm: drink => dispatch(createDrink(drink)),
+    processForm: (drink, redirect) => dispatch(createDrink(drink, redirect)),
     fetchDrink: id => dispatch(fetchDrink(id)),
 });
 
