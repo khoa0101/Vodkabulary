@@ -15,8 +15,11 @@
   input[type='text'] {
     padding-left: 8px;
   }
-  input[type='submit'] {
-    font-size: 16px;
+  button{
+    img{
+      width: 16px;
+      height: 16px;
+    }
     text-transform: capitalize;
   }
 }

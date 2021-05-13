@@ -27,7 +27,7 @@ function SearchBar(props) {
         onChange={handleChange}
         value={searchTerm}
       />
-      <input type="submit" value="Search" />
+      <button type="submit"><img src="loupe.svg"></img></button>
     </form>
   );
 
