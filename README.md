@@ -1,5 +1,6 @@
 # Vodkabulary
 
+[Live Link](https://vodkabulary.herokuapp.com/#/)
 Vodkabulary is a website that allows users to create, edit , share, rate and favorite the wide variety of drink combinations posted on the site. 
 
 ### Background:
