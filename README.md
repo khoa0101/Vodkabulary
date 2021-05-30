@@ -1,4 +1,5 @@
 # Vodkabulary
+![02](https://user-images.githubusercontent.com/65047030/120117425-015ff400-c142-11eb-9bfa-12eb9cd3ccd5.jpg)
 
 [Live Link](https://vodkabulary.herokuapp.com/#/)
 
