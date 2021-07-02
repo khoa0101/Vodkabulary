@@ -21,6 +21,7 @@ const Review = require("./models/Review");
 const users = require("./routes/api/users");
 const drinks = require("./routes/api/drinks");
 const reviews = require("./routes/api/reviews");
+const favorites = require("./routes/api/favorites");
 
 
 // express middleware
@@ -42,6 +43,7 @@ if (process.env.NODE_ENV === "production") {
 app.use("/api/users", users);
 app.use("/api/drinks", drinks);
 app.use("/api/reviews", reviews);
+app.use("/api/favorites", favorites);
 
 // port setup
 const port = process.env.PORT || 5000;
