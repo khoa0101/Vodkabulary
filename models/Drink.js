@@ -25,6 +25,10 @@ const DrinkSchema = new Schema({
   photo: {
     type: String
   },
+  favs: [{ 
+    type: ObjectId, 
+    ref: 'user' 
+  }],
   date: {
     type: Date,
     default: Date.now,
