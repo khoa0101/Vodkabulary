@@ -46,7 +46,8 @@ router.get(
   (req, res) => {
     Drink.find()
       .sort({ date: -1 })
-      .populate("user", "username", "favorites")
+      .populate("user", "username")
+      .populate("favorites", 'username')
       .then((drinks) => res.json(drinks))
       .catch((err) => res.status(400).json(err));
   }
@@ -58,7 +59,8 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Drink.find({ user: req.params.user_id })
-      .populate("user", "username", "favorites")
+      .populate("user", "username")
+      .populate("favorites", 'username')
       .then((drinks) => res.json(drinks))
       .catch((err) => res.status(400).json(err));
   }
@@ -70,7 +72,8 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Drink.findById(req.params.id)
-      .populate("user", "username", "favorites")
+      .populate("user", "username")
+      .populate("favorites", 'username')
       .then((drink) => res.json(drink))
       .catch((err) => res.status(400).json(err));
   }
@@ -169,7 +172,7 @@ router.post(
 
       newDrink
         .save()
-        .then((drink) => res.json(drink.populate("user", "username", "favorites")));
+        .then((drink) => res.json(drink.populate("user", "username")));
     } else {
        return res.status(400).json({error: 'Drink image required'});
     }
