@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const Drink = require("../../models/Drink");
-const User = require("../../models/User");
 
-// Posts.find({ likes: userId }).populate("likes");
 router.get(
   "/:userId",
   passport.authenticate("jwt", { session: false }),
@@ -41,10 +39,13 @@ router.delete(
   "/:drinkId",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Drink.findById(req.params.drinkId).then((drink) => {
-      drink.favorites.pull(req.body.userId);
+    const { userId } = req.body;
+    const { drinkId } = req.params;
+
+    Drink.findById(drinkId).then((drink) => {
+      drink.favorites.pull(userId);
       return drink.save().then(() => {
-        Drink.find({ _id: req.params.drinkId })
+        Drink.find({ _id: drinkId })
           .populate("user", "username")
           .populate("favorites", "username")
           .then((drink) => {
