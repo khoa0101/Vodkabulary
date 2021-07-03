@@ -5,7 +5,9 @@ const Drink = require("../../models/Drink");
 const User = require("../../models/User");
 
 
-router.post('/', (req, res) => {
+router.post('/', 
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
   const { drinkId, userId } = req.body;
 
   Drink.find({_id: drinkId})
@@ -21,10 +23,17 @@ router.post('/', (req, res) => {
       })
     })
   })
-})
+});
 
-router.delete('/:userId', (req, res) => {
-  res.json({msg: "hello"});
-})
+router.delete('/:drinkId', async (req, res) => {
+  const drink = await Drink.findById(req.params.drinkId);
+
+  drink.favorites = drink.favorites.filter(userId => {
+    userId.toString() !== req.body.userId 
+  });
+  drink.save();
+
+  res.send(drink);
+});
 
 module.exports = router;
