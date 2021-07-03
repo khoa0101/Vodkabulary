@@ -25,15 +25,19 @@ router.post('/',
   })
 });
 
-router.delete('/:drinkId', async (req, res) => {
-  const drink = await Drink.findById(req.params.drinkId);
-
-  drink.favorites = drink.favorites.filter(userId => {
-    userId.toString() !== req.body.userId 
-  });
-  drink.save();
-
-  res.send(drink);
+router.delete('/:drinkId', (req, res) => {
+  Drink.findById(req.params.drinkId)
+    .then(drink => {
+      drink.favorites.pull(req.body.userId);
+      return drink.save().then(() => {
+        Drink.find({_id: req.params.drinkId})
+        .populate("user", "username")
+        .populate("favorites", 'username')
+        .then(drink => {
+          res.json(drink)
+        })
+      })
+    });
 });
 
 module.exports = router;
