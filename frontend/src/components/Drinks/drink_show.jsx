@@ -7,25 +7,48 @@ class DrinkShow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      favored: false
+    };
+
     this.favorite = this.favorite.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchDrink(this.props.match.params.id);
     window.scrollTo(0, 0);
+
+    // when component loads and drink is available, determine if drink is favored
+    if (this.props.drink !== undefined) {
+      this.setState({favored: !!this.props.drink.favorites.filter(
+          (user) => user._id === this.props.currentUser.id
+        )[0]})
+    }
+  }
+
+  componentDidUpdate(prevProps){
+    if (this.props.drink !== prevProps.drink) {
+      this.setState({
+        favored: !!this.props.drink.favorites.filter(
+          (user) => user._id === this.props.currentUser.id
+        )[0],
+      });
+    }
   }
 
   favorite() {
     const { drink, currentUser } = this.props;
-    console.log(drink._id, currentUser.id);
-    // drink._id is drinkId
-    this.props.createFavorite({drinkId: drink._id, userId: currentUser.id})
+    if (this.state.favored){
+      this.props.deleteFavorite(drink._id, currentUser.id)
+    } else {
+      this.props.createFavorite({drinkId: drink._id, userId: currentUser.id})
+    }
   }
 
   render() {
     if (this.props.drink === undefined) return null;
     const { drink } = this.props;
+    console.log(this.state.favored)
     return (
       <div key={drink._id} className="Drink-Container">
         <div className="Drink-Pic">
@@ -49,8 +72,8 @@ class DrinkShow extends React.Component {
                 <p>{drink.directions}</p>
               </div>
             </div>
-            <button onClick={this.favorite}  >
-              {drink.favorites.filter(user => user._id === this.props.currentUser.id)[0] ? 'unfavorite' : 'favorite'}
+            <button onClick={this.favorite}>
+              {this.state.favored ? "unfavorite" : "favorite"}
             </button>
           </div>
           <h2 className="review-header">Reviews</h2>
