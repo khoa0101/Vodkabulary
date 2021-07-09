@@ -1,6 +1,6 @@
 import * as APIUtil from "../util/favorites_api_util";
-import receiveDrink from "./drink_actions";
-import receiveUserDrinks from "./drink_actions";
+import {receiveDrink} from "./drink_actions";
+import {receiveUserDrinks} from "./drink_actions";
 
 export const createFavorite = (ids) => (dispatch) => {
   APIUtil.createFavorite(ids).then((drink) => {

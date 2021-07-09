@@ -10,7 +10,7 @@ router.get(
     Drink.find({ favorites: req.params.userId })
       .populate("user", "username")
       .populate("favorites", "username")
-      .then((drink) => res.json(drink));
+      .then((drinks) => res.json(drinks));
   }
 );
 
@@ -19,6 +19,7 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { drinkId, userId } = req.body;
+    console.log(drinkId, userId);
 
     Drink.find({ _id: drinkId }).then((drink) => {
       drink = drink[0];
@@ -28,7 +29,7 @@ router.post(
           .populate("user", "username")
           .populate("favorites", "username")
           .then((drink) => {
-            res.json(drink);
+            res.json(drink[0]);
           });
       });
     });
@@ -49,7 +50,7 @@ router.delete(
           .populate("user", "username")
           .populate("favorites", "username")
           .then((drink) => {
-            res.json(drink);
+            res.json(drink[0]);
           });
       });
     });
