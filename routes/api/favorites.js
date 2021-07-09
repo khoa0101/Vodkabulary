@@ -37,12 +37,10 @@ router.post(
 );
 
 router.delete(
-  "/:drinkId",
+  "/:drinkId/:userId",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { userId } = req.body;
-    const { drinkId } = req.params;
-
+    const { drinkId, userId } = req.params;
     Drink.findById(drinkId).then((drink) => {
       drink.favorites.pull(userId);
       return drink.save().then(() => {

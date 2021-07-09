@@ -6,8 +6,8 @@ export const createFavorite = (ids) => {
 }
 
 export const deleteFavorite = (drinkId, userId) => {
-  const url = preUrl + drinkId;
-  return axios.delete(url, {userId});
+  const url = `${preUrl}${drinkId}/${userId}`;
+  return axios.delete(url);
 }
 
 export const getUserLikedDrinks = (userId) => {

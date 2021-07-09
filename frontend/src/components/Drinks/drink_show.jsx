@@ -8,7 +8,7 @@ class DrinkShow extends React.Component {
     super(props);
 
     this.state = {
-      favored: false
+      favored: false,
     };
 
     this.favorite = this.favorite.bind(this);
@@ -20,13 +20,15 @@ class DrinkShow extends React.Component {
 
     // when component loads and drink is available, determine if drink is favored
     if (this.props.drink !== undefined) {
-      this.setState({favored: !!this.props.drink.favorites.filter(
+      this.setState({
+        favored: !!this.props.drink.favorites.filter(
           (user) => user._id === this.props.currentUser.id
-        )[0]})
+        )[0],
+      });
     }
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps) {
     if (this.props.drink !== prevProps.drink) {
       this.setState({
         favored: !!this.props.drink.favorites.filter(
@@ -38,17 +40,16 @@ class DrinkShow extends React.Component {
 
   favorite() {
     const { drink, currentUser } = this.props;
-    if (this.state.favored){
-      this.props.deleteFavorite(drink._id, currentUser.id)
+    if (this.state.favored) {
+      this.props.deleteFavorite(drink._id, currentUser.id);
     } else {
-      this.props.createFavorite({drinkId: drink._id, userId: currentUser.id})
+      this.props.createFavorite({ drinkId: drink._id, userId: currentUser.id });
     }
   }
 
   render() {
     if (this.props.drink === undefined) return null;
     const { drink } = this.props;
-    console.log(this.state.favored)
     return (
       <div key={drink._id} className="Drink-Container">
         <div className="Drink-Pic">
