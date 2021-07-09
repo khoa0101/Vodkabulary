@@ -9,6 +9,6 @@ export const deleteFavorite = (drinkId, userId) => {
   return axios.post(preUrl + drinkId, userId);
 }
 
-export const getUserLikedPost = (userId) => {
+export const getUserLikedDrinks = (userId) => {
   return axios.get(preUrl + userId);
 }
