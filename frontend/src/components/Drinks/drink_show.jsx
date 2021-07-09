@@ -49,7 +49,9 @@ class DrinkShow extends React.Component {
                 <p>{drink.directions}</p>
               </div>
             </div>
-            <button onClick={this.favorite}>favorite</button>
+            <button onClick={this.favorite}  >
+              {drink.favorites.filter(user => user._id === this.props.currentUser.id)[0] ? 'unfavorite' : 'favorite'}
+            </button>
           </div>
           <h2 className="review-header">Reviews</h2>
           <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
