@@ -19,7 +19,14 @@ class Discover extends React.Component {
   }
 
   render() {
-    const { drinks } = this.props;
+    const { drinks, favorites } = this.props;
+    if (favorites && !drinks.length) {
+      return (
+        <div className="discover-main message">
+          Add drinks to your favorites!
+        </div>
+      );
+    }
     return (
       <main className="discover-main">
         <section className="discover-hero-container"></section>
