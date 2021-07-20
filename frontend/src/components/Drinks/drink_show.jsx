@@ -55,9 +55,21 @@ class DrinkShow extends React.Component {
         <div className="Drink-Pic">
           <div className="Drink-info">
             <div className="title">
-              <h1>{drink.title}</h1>
+              <h1>
+                {drink.title}
+                <span className="fav">
+                  <button onClick={this.favorite}>
+                    {this.state.favored ? (
+                      <img src="fav.svg" alt="" className="fav-icon" />
+                    ) : (
+                      <img src="notFav.svg" alt="" className="fav-icon" />
+                    )}
+                  </button>
+                </span>
+              </h1>
+
               <h3>Recipe by {drink.user.username}</h3>
-              <img src={`${drink.photo}`} alt="" />
+              <img src={`${drink.photo}`} alt="" className="drink-img" />
             </div>
             <div className="in-di">
               <div className="ingredients">
@@ -73,10 +85,8 @@ class DrinkShow extends React.Component {
                 <p>{drink.directions}</p>
               </div>
             </div>
-            <button onClick={this.favorite}>
-              {this.state.favored ? "unfavorite" : "favorite"}
-            </button>
           </div>
+
           <h2 className="review-header">Reviews</h2>
           <ReviewIndexContainer users={this.props.users} drinkId={drink._id} />
           <div className="review-button">
