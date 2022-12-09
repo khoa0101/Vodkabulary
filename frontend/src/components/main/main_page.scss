@@ -1,17 +1,30 @@
-.welcome{
-  background-image: linear-gradient(to bottom,#1C5D99, rgb(0, 39, 65));
+.welcome {
+  background-image: linear-gradient(to bottom, #1C5D99, rgb(0, 39, 65));
   padding: 30px 10%;
   height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  h1{
+  flex-direction: column;
+
+  h1 {
     font-family: 'Monoton', cursive;
     font-size: 46px;
+    align-self: flex-start;
+    margin-bottom: 50px;
+  }
+
+  &-copy {
+    display: flex;
+
+  }
+
+  &-copy :first-child {
+    margin-right: 40px;
   }
 }
 
-footer{
+footer {
   .custom-shape-divider-top-1618953969 {
     position: relative;
     top: 0;
@@ -22,17 +35,17 @@ footer{
   }
 
   .custom-shape-divider-top-1618953969 svg {
-      position: relative;
-      display: block;
-      width: calc(100% + 1.3px);
-      height: 102px;
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 102px;
   }
 
   .custom-shape-divider-top-1618953969 .shape-fill {
-      fill:  rgb(0, 39, 65);
+    fill: rgb(0, 39, 65);
   }
-  
-  .credits{
+
+  .credits {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -40,20 +53,25 @@ footer{
     padding: 20px 10%;
     font-size: 12px;
     background-color: #BBCDE5;
-    .main-git{
+
+    .main-git {
       width: 48px;
       height: 48px;
     }
-    li{
+
+    li {
       display: flex;
-      div{
+
+      div {
         display: flex;
         flex-direction: row;
       }
     }
-    a{
+
+    a {
       margin-left: 2px;
-      img{
+
+      img {
         margin: 2px;
         width: 20px;
         height: 20px;

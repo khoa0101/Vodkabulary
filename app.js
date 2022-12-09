@@ -46,5 +46,5 @@ app.use("/api/reviews", reviews);
 app.use("/api/favorites", favorites);
 
 // port setup
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
