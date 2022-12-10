@@ -1,7 +1,7 @@
 # Vodkabulary
 ![02](https://user-images.githubusercontent.com/65047030/120117425-015ff400-c142-11eb-9bfa-12eb9cd3ccd5.jpg)
 
-[Live Link](https://vodkabulary.herokuapp.com/#/)
+[Live Link](https://vodkabulary-9rms.onrender.com/#/discover)
 
 Vodkabulary is a website that allows users to create, edit , share, rate and favorite the wide variety of drink combinations posted on the site. 
 
@@ -29,4 +29,5 @@ Have you ever had no idea of what to sort of drink to enjoy on a Friday night? V
 * NodeJS
 * Axios
 * ReactJS
-* Hosted on Heroku
+* Redux
+* Hosted on Render.com
